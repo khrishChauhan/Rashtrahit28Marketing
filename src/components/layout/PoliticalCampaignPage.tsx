@@ -192,13 +192,13 @@ export function PoliticalCampaignPage() {
       {/* Back Button */}
       <button 
         onClick={handleBack}
-        className={`absolute top-6 left-6 md:top-10 md:left-10 z-[100] flex items-center gap-3 px-5 py-3 rounded-full backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 ${buttonClasses}`}
+        className={`absolute top-4 left-4 sm:top-6 sm:left-6 md:top-10 md:left-10 z-[100] flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 rounded-full backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 min-h-[40px] sm:min-h-[44px] ${buttonClasses}`}
         aria-label="Go Back"
       >
-        <div className={`flex items-center justify-center rounded-full h-8 w-8 ${buttonIconClasses}`}>
-          <ArrowLeft className="h-4 w-4" />
+        <div className={`flex items-center justify-center rounded-full h-6 w-6 sm:h-8 sm:w-8 ${buttonIconClasses}`}>
+          <ArrowLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
         </div>
-        <span className="font-semibold text-sm tracking-wide">Back</span>
+        <span className="font-semibold text-xs sm:text-sm tracking-wide">Back</span>
       </button>
 
       {/* Right Progress Indicator */}

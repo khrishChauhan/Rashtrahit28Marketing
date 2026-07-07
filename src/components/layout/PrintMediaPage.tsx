@@ -186,23 +186,6 @@ export function PrintMediaPage() {
         <span className="font-semibold text-xs sm:text-sm tracking-wide">Back</span>
       </button>
 
-      {/* Contact Button */}
-      <Link
-        to="/contact"
-        className={`absolute top-4 right-12 sm:top-6 sm:right-16 md:top-10 md:right-20 z-[100] flex items-center gap-2 px-3 sm:px-5 py-2 sm:py-3 rounded-full backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 min-h-[40px] sm:min-h-[44px] ${buttonClasses}`}
-        aria-label="Contact Us"
-      >
-        <span className="font-semibold text-xs sm:text-sm tracking-wide">Contact</span>
-      </Link>
-
-      {/* Logo */}
-      <Link to="/" className="absolute top-4 left-1/2 -translate-x-1/2 z-[100]">
-        <img
-          src="/images/logo/rlogo.png"
-          alt="Rashtrahit28Marketing"
-          className="h-8 sm:h-10 md:h-12 w-auto object-contain max-w-[140px] sm:max-w-[180px]"
-        />
-      </Link>
 
       {/* Right Progress Indicators */}
       <div className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
