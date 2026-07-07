@@ -79,7 +79,7 @@ export function Services() {
           >
             <Badge variant="subtle" className="mb-4 sm:mb-6">Welcome</Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-bold tracking-tight text-gray-900 font-heading mb-6">
-              to Our Services
+              to our services
             </h2>
             <div className="h-1 w-16 sm:w-20 bg-brand-500 rounded-full" />
           </motion.div>
