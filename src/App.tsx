@@ -13,6 +13,7 @@ import { AboutFAQ } from "./components/layout/AboutFAQ";
 import { ContactUs } from "./components/layout/ContactUs";
 import { ServiceDetail } from "./components/layout/ServiceDetail";
 import { Footer } from "./components/layout/Footer";
+import { PoliticalCampaignPage } from "./components/layout/PoliticalCampaignPage";
 import { Button } from "./components/ui/Button";
 
 function HomePage() {
@@ -20,7 +21,6 @@ function HomePage() {
     <>
       <WhatWeDo />
       <Services />
-      <Team />
       <ConnectWithUs />
       <TrustAndContact />
     </>
@@ -91,12 +91,11 @@ function AnimatedRoutes() {
   
   return (
     <AnimatePresence mode="wait">
-      {/* @ts-expect-error - React key on Routes for AnimatePresence */}
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
-        <Route path="/political" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
+        <Route path="/political" element={<PoliticalCampaignPage />} />
         <Route path="/team" element={<PageWrapper><TeamPage /></PageWrapper>} />
         <Route path="/services/social-media-management" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
         <Route path="/services/search-engine-optimization" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
@@ -109,17 +108,26 @@ function AnimatedRoutes() {
   );
 }
 
+function AppContent() {
+  const location = useLocation();
+  const isPoliticalPage = location.pathname === '/political';
+
+  return (
+    <div className="min-h-screen bg-bg-base font-sans selection:bg-brand-500 selection:text-white">
+      <ScrollToTop />
+      {!isPoliticalPage && <Header />}
+      <main>
+        <AnimatedRoutes />
+      </main>
+      {!isPoliticalPage && <Footer />}
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-bg-base font-sans selection:bg-brand-500 selection:text-white">
-        <ScrollToTop />
-        <Header />
-        <main>
-          <AnimatedRoutes />
-        </main>
-        <Footer />
-      </div>
+      <AppContent />
     </BrowserRouter>
   );
 }
