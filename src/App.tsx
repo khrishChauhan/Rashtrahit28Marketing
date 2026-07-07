@@ -5,6 +5,7 @@ import { Header } from "./components/layout/Header";
 import { WhatWeDo } from "./components/layout/WhatWeDo";
 import { Services } from "./components/layout/Services";
 import { Team } from "./components/layout/Team";
+import { TeamPageContent } from "./components/layout/TeamPageContent";
 import { ConnectWithUs } from "./components/layout/ConnectWithUs";
 import { TrustAndContact } from "./components/layout/TrustAndContact";
 import { AboutIntro } from "./components/layout/AboutIntro";
@@ -47,7 +48,7 @@ function ContactPage() {
 function TeamPage() {
   return (
     <div className="pt-16 md:pt-24">
-      <Team />
+      <TeamPageContent />
     </div>
   );
 }
