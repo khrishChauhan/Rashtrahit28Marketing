@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   MonitorSmartphone, 
@@ -15,32 +16,38 @@ const SERVICES_DATA = [
   {
     title: "Social Media Management(SMM)",
     description: "Enhance your brand's online presence by collaborating with Gurgaon’s premier social media marketing agency. Get professional growth, engagement, and strategy for your company!",
-    icon: <Users className="h-6 w-6" />
+    icon: <Users className="h-6 w-6" />,
+    href: "/services/social-media-management"
   },
   {
     title: "Search Engine Optimization (SEO)",
     description: "The top SEO services in Gurgaon are provided by GST Industrial & Marketing Services, ensuring that your company achieves increased organic traffic and optimal visibility.",
-    icon: <Search className="h-6 w-6" />
+    icon: <Search className="h-6 w-6" />,
+    href: "/services/search-engine-optimization"
   },
   {
     title: "Video Editing",
     description: "Increase brand awareness with Gurgaon’s best video marketing company! Professional video editing services to produce captivating, excellent material that produces outcomes.",
-    icon: <Video className="h-6 w-6" />
+    icon: <Video className="h-6 w-6" />,
+    href: "/services/video-editing"
   },
   {
     title: "Web Designing",
     description: "GST Marketing Company offers high-impact web design services that help brands build a strong, credible, and conversion-focused online presence. We design modern, responsive,",
-    icon: <MonitorSmartphone className="h-6 w-6" />
+    icon: <MonitorSmartphone className="h-6 w-6" />,
+    href: "/services/web-designing"
   },
   {
     title: "Graphic Designing",
     description: "Creative social media post services that attract attention, engage audiences, and build strong brand presence every single day. Make your brand memorable with custom logo design services tailored to your vision and business goals.",
-    icon: <PenTool className="h-6 w-6" />
+    icon: <PenTool className="h-6 w-6" />,
+    href: "/services/graphic-designing"
   },
   {
     title: "Political Campaign & Marketing",
     description: "Political campaigns and marketing play a vital role in building public trust, shaping voter perception, and driving meaningful engagement during elections. As a Top Campaign Marketing Agency in Gurgaon,",
-    icon: <Megaphone className="h-6 w-6" />
+    icon: <Megaphone className="h-6 w-6" />,
+    href: "/political"
   }
 ];
 
@@ -98,13 +105,13 @@ export function Services() {
               </p>
               
               <div className="mt-auto">
-                <a 
-                  href="#" 
+                <Link 
+                  to={service.href} 
                   className="inline-flex h-14 w-full sm:w-auto items-center justify-center rounded-full border border-gray-200 bg-transparent px-8 text-sm font-bold text-gray-700 transition-all duration-500 group-hover:border-brand-500 group-hover:bg-brand-50 group-hover:text-brand-700"
                 >
                   Read More
                   <ArrowRight className="ml-2.5 h-4 w-4 transition-transform duration-500 group-hover:translate-x-2" />
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}

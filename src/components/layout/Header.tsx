@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Phone, Facebook, Instagram, Twitter, Linkedin, Menu, X, ChevronDown } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../ui/Button';
 import { cn } from '../../lib/utils';
 
@@ -10,21 +11,22 @@ const TOP_BAR_CONTACT = {
 };
 
 const NAV_LINKS = [
-  { label: "Home", href: "#", active: true },
-  { label: "About Us", href: "#about" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
   { 
     label: "Services", 
     href: "#",
     dropdown: [
-      { title: "Digital Strategy", desc: "Data-driven roadmaps to scale your brand." },
-      { title: "Performance Marketing", desc: "Targeted campaigns engineered to convert." },
-      { title: "Web Experiences", desc: "Award-winning digital platforms & apps." },
-      { title: "Political Campaigns", desc: "Strategic political communication." }
+      { title: "Social Media Management (SMM)", desc: "Grow your online presence", href: "/services/social-media-management" },
+      { title: "Search Engine Optimization (SEO)", desc: "Increase organic traffic", href: "/services/search-engine-optimization" },
+      { title: "Video Editing", desc: "Professional video marketing", href: "/services/video-editing" },
+      { title: "Graphic Designing", desc: "Creative brand identity", href: "/services/graphic-designing" },
+      { title: "Web Designing", desc: "High-impact web solutions", href: "/services/web-designing" }
     ]
   },
-  { label: "Political", href: "#" },
-  { label: "Team", href: "#" },
-  { label: "Contact Us", href: "#contact" }
+  { label: "Political", href: "/political" },
+  { label: "Team", href: "/team" },
+  { label: "Contact Us", href: "/contact" }
 ];
 
 function TopBar() {
@@ -63,6 +65,8 @@ function TopBar() {
 function DesktopNavItem({ link }: { link: any; key?: string | number }) {
   const [isOpen, setIsOpen] = useState(false);
   const isDropdown = !!link.dropdown;
+  const location = useLocation();
+  const isActive = location.pathname === link.href || (isDropdown && location.pathname.startsWith('/services'));
 
   return (
     <div 
@@ -70,20 +74,37 @@ function DesktopNavItem({ link }: { link: any; key?: string | number }) {
       onMouseEnter={() => isDropdown && setIsOpen(true)}
       onMouseLeave={() => isDropdown && setIsOpen(false)}
     >
-      <a 
-        href={link.href}
-        className={cn(
-          "flex items-center gap-1.5 text-[15px] font-medium transition-colors relative",
-          link.active ? "text-brand-700" : "text-gray-600 hover:text-brand-700"
-        )}
-      >
-        {link.label}
-        {isDropdown && <ChevronDown className={cn("h-4 w-4 transition-transform duration-300", isOpen && "rotate-180")} />}
-        <span className={cn(
-          "absolute -bottom-1.5 left-0 h-[2px] bg-brand-600 transition-all duration-300 rounded-full",
-          link.active ? "w-full" : "w-0 group-hover:w-full"
-        )}></span>
-      </a>
+      {isDropdown ? (
+        <a
+          href="#"
+          onClick={(e) => e.preventDefault()}
+          className={cn(
+            "flex items-center gap-1.5 text-[15px] font-medium transition-colors relative cursor-pointer",
+            isActive ? "text-brand-700" : "text-gray-600 hover:text-brand-700"
+          )}
+        >
+          {link.label}
+          <ChevronDown className={cn("h-4 w-4 transition-transform duration-300", isOpen && "rotate-180")} />
+          <span className={cn(
+            "absolute -bottom-1.5 left-0 h-[2px] bg-brand-600 transition-all duration-300 rounded-full",
+            isActive ? "w-full" : "w-0 group-hover:w-full"
+          )}></span>
+        </a>
+      ) : (
+        <Link 
+          to={link.href}
+          className={cn(
+            "flex items-center gap-1.5 text-[15px] font-medium transition-colors relative",
+            isActive ? "text-brand-700" : "text-gray-600 hover:text-brand-700"
+          )}
+        >
+          {link.label}
+          <span className={cn(
+            "absolute -bottom-1.5 left-0 h-[2px] bg-brand-600 transition-all duration-300 rounded-full",
+            isActive ? "w-full" : "w-0 group-hover:w-full"
+          )}></span>
+        </Link>
+      )}
 
       {isDropdown && (
         <AnimatePresence>
@@ -100,9 +121,10 @@ function DesktopNavItem({ link }: { link: any; key?: string | number }) {
               
               <div className="grid grid-cols-2 gap-2">
                 {link.dropdown.map((item: any) => (
-                  <a 
+                  <Link 
                     key={item.title} 
-                    href="#"
+                    to={item.href}
+                    onClick={() => setIsOpen(false)}
                     className="group/item flex flex-col gap-1.5 rounded-xl p-4 transition-colors hover:bg-gray-50"
                   >
                     <span className="font-semibold text-gray-900 group-hover/item:text-brand-700 transition-colors">
@@ -111,7 +133,7 @@ function DesktopNavItem({ link }: { link: any; key?: string | number }) {
                     <span className="text-sm text-gray-500 leading-relaxed">
                       {item.desc}
                     </span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </motion.div>
@@ -129,6 +151,8 @@ function MobileMenu({ open, onClose }: { open: boolean, onClose: () => void }) {
     else document.body.style.overflow = 'unset';
     return () => { document.body.style.overflow = 'unset'; };
   }, [open]);
+
+  const location = useLocation();
 
   return (
     <AnimatePresence>
@@ -161,34 +185,52 @@ function MobileMenu({ open, onClose }: { open: boolean, onClose: () => void }) {
           {/* Nav Items */}
           <div className="flex-1 overflow-y-auto px-6 py-10">
             <nav className="flex flex-col gap-8">
-              {NAV_LINKS.map((link, i) => (
-                <motion.div
-                  key={link.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 + 0.1, duration: 0.4 }}
-                >
-                  <a 
-                    href={link.href} 
-                    onClick={onClose}
-                    className={cn(
-                      "text-3xl font-semibold tracking-tight transition-colors",
-                      link.active ? "text-brand-700" : "text-gray-900 hover:text-brand-700"
-                    )}
+              {NAV_LINKS.map((link, i) => {
+                const isActive = location.pathname === link.href || (!!link.dropdown && location.pathname.startsWith('/services'));
+
+                return (
+                  <motion.div
+                    key={link.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 + 0.1, duration: 0.4 }}
                   >
-                    {link.label}
-                  </a>
-                  {link.dropdown && (
-                    <div className="mt-5 flex flex-col gap-4 pl-4 border-l-2 border-gray-100">
-                      {link.dropdown.map((item: any) => (
-                        <a key={item.title} href="#" className="text-[17px] font-medium text-gray-600 hover:text-brand-700">
-                          {item.title}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </motion.div>
-              ))}
+                    {link.dropdown ? (
+                      <div className={cn(
+                        "text-3xl font-semibold tracking-tight transition-colors block cursor-default",
+                        isActive ? "text-brand-700" : "text-gray-900"
+                      )}>
+                        {link.label}
+                      </div>
+                    ) : (
+                      <Link 
+                        to={link.href} 
+                        onClick={onClose}
+                        className={cn(
+                          "text-3xl font-semibold tracking-tight transition-colors block",
+                          isActive ? "text-brand-700" : "text-gray-900 hover:text-brand-700"
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                    {link.dropdown && (
+                      <div className="mt-5 flex flex-col gap-4 pl-4 border-l-2 border-gray-100">
+                        {link.dropdown.map((item: any) => (
+                          <Link 
+                            key={item.title} 
+                            to={item.href} 
+                            onClick={onClose}
+                            className="text-[17px] font-medium text-gray-600 hover:text-brand-700 block"
+                          >
+                            {item.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
             </nav>
           </div>
 
@@ -248,14 +290,14 @@ export function Header() {
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-3 group">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white font-bold font-heading shadow-sm transition-transform duration-300 group-hover:scale-105 group-hover:shadow-md group-active:scale-95">
                 R
               </div>
               <span className="text-2xl font-bold tracking-tight text-gray-900 font-heading">
                 Rashtrahit<span className="text-brand-700">28</span>
               </span>
-            </a>
+            </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-2 xl:gap-4">

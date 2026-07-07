@@ -1,19 +1,20 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const FOOTER_LINKS = {
   quickLinks: [
-    { label: "Home", href: "#" },
-    { label: "Social Media Management (SMM)", href: "#" },
-    { label: "Search Engine Optimization (SEO)", href: "#" },
-    { label: "Video Editing", href: "#" },
-    { label: "Graphic Designing", href: "#" },
-    { label: "Web Designing", href: "#" },
-    { label: "Political Campaign", href: "#" },
+    { label: "Home", href: "/" },
+    { label: "Social Media Management (SMM)", href: "/services/social-media-management" },
+    { label: "Search Engine Optimization (SEO)", href: "/services/search-engine-optimization" },
+    { label: "Video Editing", href: "/services/video-editing" },
+    { label: "Graphic Designing", href: "/services/graphic-designing" },
+    { label: "Web Designing", href: "/services/web-designing" },
+    { label: "Political Campaign", href: "/political" },
   ],
   about: [
-    { label: "About Us", href: "#" },
-    { label: "Team", href: "#" },
+    { label: "About Us", href: "/about" },
+    { label: "Team", href: "/team" },
   ]
 };
 
@@ -38,14 +39,14 @@ export function Footer() {
           
           {/* Column 1: Logo & Description (4 columns wide on lg) */}
           <div className="lg:col-span-4 flex flex-col items-start">
-            <a href="#" className="flex items-center gap-3 group mb-6">
+            <Link to="/" className="flex items-center gap-3 group mb-6">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-white font-bold font-heading shadow-sm transition-transform duration-300 group-hover:scale-105">
                 R
               </div>
               <span className="text-2xl font-bold tracking-tight text-white font-heading">
                 Rashtrahit<span className="text-brand-500">28</span>
               </span>
-            </a>
+            </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">
               GST Industrial & Marketing Services offers the best digital marketing services in Gurgaon, specializing in result-driven ad campaigns and strategic social media solutions.
             </p>
@@ -71,15 +72,15 @@ export function Footer() {
             <ul className="space-y-4">
               {FOOTER_LINKS.quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a 
-                    href={link.href} 
+                  <Link 
+                    to={link.href} 
                     className="group inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     <ChevronRight className="h-3 w-3 mr-2 opacity-0 -ml-5 transition-all duration-300 group-hover:opacity-100 group-hover:ml-0 text-brand-500" />
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
                       {link.label}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -91,15 +92,15 @@ export function Footer() {
             <ul className="space-y-4">
               {FOOTER_LINKS.about.map((link) => (
                 <li key={link.label}>
-                  <a 
-                    href={link.href} 
+                  <Link 
+                    to={link.href} 
                     className="group inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     <ChevronRight className="h-3 w-3 mr-2 opacity-0 -ml-5 transition-all duration-300 group-hover:opacity-100 group-hover:ml-0 text-brand-500" />
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
                       {link.label}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

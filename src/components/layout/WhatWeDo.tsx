@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Megaphone, Target } from 'lucide-react';
 import { Badge } from '../ui/Badge';
 
@@ -8,13 +9,15 @@ const SERVICES = [
     title: "Branding",
     description: "We build strong, memorable brand identities that connect with your audience and establish lasting market presence.",
     icon: <Target className="h-6 w-6" />,
-    cta: "Read More"
+    cta: "Read More",
+    href: "/about"
   },
   {
     title: "Political Campaign",
     description: "Strategic political communication and campaign management designed to drive voter engagement and election success.",
     icon: <Megaphone className="h-6 w-6" />,
-    cta: "Read More"
+    cta: "Read More",
+    href: "/political"
   }
 ];
 
@@ -77,8 +80,8 @@ export function WhatWeDo() {
                       {service.description}
                     </p>
                     
-                    <a 
-                      href="#" 
+                    <Link 
+                      to={service.href} 
                       className="inline-flex items-center text-sm font-bold text-brand-700 transition-colors hover:text-brand-800"
                     >
                       <span className="relative">
@@ -86,7 +89,7 @@ export function WhatWeDo() {
                         <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-brand-600 transition-all duration-300 group-hover:w-full" />
                       </span>
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
-                    </a>
+                    </Link>
                   </div>
                 </motion.div>
               ))}

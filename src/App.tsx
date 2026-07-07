@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 import { Header } from "./components/layout/Header";
 import { WhatWeDo } from "./components/layout/WhatWeDo";
 import { Services } from "./components/layout/Services";
@@ -10,6 +12,7 @@ import { AboutFAQ } from "./components/layout/AboutFAQ";
 import { ContactUs } from "./components/layout/ContactUs";
 import { ServiceDetail } from "./components/layout/ServiceDetail";
 import { Footer } from "./components/layout/Footer";
+import { Button } from "./components/ui/Button";
 
 function HomePage() {
   return (
@@ -40,34 +43,90 @@ function ContactPage() {
   );
 }
 
-export default function App() {
-  const [currentHash, setCurrentHash] = useState(window.location.hash);
-
-  useEffect(() => {
-    const onHashChange = () => {
-      setCurrentHash(window.location.hash);
-      window.scrollTo(0, 0);
-    };
-    
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
-
-  const renderContent = () => {
-    if (currentHash === '#about') return <AboutPage />;
-    if (currentHash === '#contact') return <ContactPage />;
-    if (currentHash === '#service') return <ServiceDetail />;
-    return <HomePage />;
-  };
-
+function PoliticalPage() {
   return (
-    <div className="min-h-screen bg-bg-base font-sans selection:bg-brand-500 selection:text-white">
-      <Header />
-      <main>
-        {renderContent()}
-      </main>
-      <Footer />
+    <div className="pt-16 md:pt-24">
+      <WhatWeDo />
+      <ContactUs />
     </div>
+  );
+}
+
+function TeamPage() {
+  return (
+    <div className="pt-16 md:pt-24">
+      <Team />
+    </div>
+  );
+}
+
+function NotFoundPage() {
+  return (
+    <div className="pt-32 pb-32 flex flex-col items-center justify-center text-center px-6">
+      <h1 className="text-6xl font-bold text-gray-900 mb-6">404</h1>
+      <p className="text-xl text-gray-600 mb-8 max-w-md">The page you are looking for does not exist or has been moved.</p>
+      <Button variant="primary" onClick={() => window.location.href = '/'}>
+        Return Home
+      </Button>
+    </div>
+  );
+}
+
+function PageWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+  return null;
+}
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
+        <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
+        <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
+        <Route path="/political" element={<PageWrapper><PoliticalPage /></PageWrapper>} />
+        <Route path="/team" element={<PageWrapper><TeamPage /></PageWrapper>} />
+        <Route path="/services/social-media-management" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
+        <Route path="/services/search-engine-optimization" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
+        <Route path="/services/video-editing" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
+        <Route path="/services/graphic-designing" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
+        <Route path="/services/web-designing" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
+        <Route path="*" element={<PageWrapper><NotFoundPage /></PageWrapper>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-bg-base font-sans selection:bg-brand-500 selection:text-white">
+        <ScrollToTop />
+        <Header />
+        <main>
+          <AnimatedRoutes />
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
