@@ -270,7 +270,7 @@ function Section1() {
           </motion.h3>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-            className="text-3xl md:text-5xl lg:text-[4rem] font-bold font-heading mb-4 lg:mb-6 leading-[1.1]"
+            className="text-3xl md:text-5xl lg:text-[4rem] font-bold font-heading mb-4 lg:mb-6 leading-[1.1] text-brand-500"
           >
             {SECTION_1.heading}
           </motion.h1>
