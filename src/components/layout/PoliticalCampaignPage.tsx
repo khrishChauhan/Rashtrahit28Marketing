@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const SECTION_1 = {
   heading: "Best Political Marketing Agency in Gurgaon",
@@ -66,7 +67,7 @@ const slideVariants = {
   })
 };
 
-const transition = { duration: 0.9, ease: [0.65, 0, 0.35, 1] as [number, number, number, number] };
+const transition = { duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] };
 
 export function PoliticalCampaignPage() {
   const [activeSection, setActiveSection] = useState(0);
@@ -87,13 +88,13 @@ export function PoliticalCampaignPage() {
     setDirection(dir);
     setActiveSection((prev) => {
       let next = prev + dir;
-      if (next > 3) next = 0;
-      if (next < 0) next = 3;
+      if (next > 4) next = 0;
+      if (next < 0) next = 4;
       return next;
     });
     setTimeout(() => {
       isAnimating.current = false;
-    }, 1200); 
+    }, 1000); 
   }, []);
 
   const handleWheel = useCallback((e: WheelEvent) => {
@@ -157,6 +158,23 @@ export function PoliticalCampaignPage() {
     };
   }, [handleWheel, handleTouchStart, handleTouchMove]);
 
+  const navigate = useNavigate();
+  const isDarkBackground = activeSection === 0 || activeSection === 3;
+  const buttonClasses = isDarkBackground 
+    ? "bg-white/10 border-white/20 text-white hover:bg-white/20" 
+    : "bg-gray-900/5 border-gray-900/10 text-gray-900 hover:bg-gray-900/10";
+  const buttonIconClasses = isDarkBackground ? "bg-white/20" : "bg-gray-900/10";
+  const dotClasses = isDarkBackground ? "bg-white" : "bg-brand-600";
+  const dotInactiveClasses = isDarkBackground ? "bg-white/30 group-hover:bg-white/70" : "bg-brand-900/20 group-hover:bg-brand-900/40";
+  const shadowClasses = isDarkBackground ? "shadow-[0_0_10px_rgba(255,255,255,0.8)]" : "shadow-[0_0_10px_rgba(79,70,229,0.4)]";
+  const handleBack = () => {
+    if (window.history.state && window.history.state.idx > 0) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
+
   const goToSection = (index: number) => {
     if (index === activeSection || isAnimating.current) return;
     const dir = index > activeSection ? 1 : -1;
@@ -171,14 +189,21 @@ export function PoliticalCampaignPage() {
   return (
     <div className="relative w-full h-[100dvh] bg-brand-900 overflow-hidden select-none font-sans">
       
-      {/* Side Vertical Text */}
-      <div className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 -rotate-90 z-50 text-white/50 hidden md:block tracking-[0.3em] text-xs font-bold whitespace-nowrap">
-        ESTABLISHED 2017
-      </div>
+      {/* Back Button */}
+      <button 
+        onClick={handleBack}
+        className={`absolute top-6 left-6 md:top-10 md:left-10 z-[100] flex items-center gap-3 px-5 py-3 rounded-full backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 ${buttonClasses}`}
+        aria-label="Go Back"
+      >
+        <div className={`flex items-center justify-center rounded-full h-8 w-8 ${buttonIconClasses}`}>
+          <ArrowLeft className="h-4 w-4" />
+        </div>
+        <span className="font-semibold text-sm tracking-wide">Back</span>
+      </button>
 
       {/* Right Progress Indicator */}
       <div className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
-        {[0, 1, 2, 3].map((idx) => (
+        {[0, 1, 2, 3, 4].map((idx) => (
           <button
             key={idx}
             onClick={() => goToSection(idx)}
@@ -186,7 +211,7 @@ export function PoliticalCampaignPage() {
             aria-label={`Go to section ${idx + 1}`}
           >
             <span 
-              className={`absolute h-1.5 w-1.5 rounded-full transition-all duration-500 ${activeSection === idx ? 'bg-white scale-150 shadow-[0_0_10px_rgba(255,255,255,0.8)]' : 'bg-white/30 group-hover:bg-white/70 group-hover:scale-125'}`}
+              className={`absolute h-1.5 w-1.5 rounded-full transition-all duration-500 ${activeSection === idx ? `${dotClasses} scale-150 ${shadowClasses}` : `${dotInactiveClasses} group-hover:scale-125`}`}
             />
           </button>
         ))}
@@ -207,6 +232,7 @@ export function PoliticalCampaignPage() {
           {activeSection === 1 && <Section2 />}
           {activeSection === 2 && <Section3 />}
           {activeSection === 3 && <Section4 />}
+          {activeSection === 4 && <Section5 />}
         </motion.div>
       </AnimatePresence>
 
@@ -225,7 +251,7 @@ export function PoliticalCampaignPage() {
 
 function Section1() {
   return (
-    <div className="w-full h-full bg-gradient-to-br from-brand-900 via-brand-800 to-purple-900 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-hidden">
+    <div className="w-full h-full bg-gradient-to-br from-brand-900 via-brand-800 to-purple-900 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-y-auto hide-scrollbar">
       <div className="absolute inset-0 z-0">
         <motion.div 
           animate={{ y: [0, -20, 0] }} 
@@ -275,7 +301,7 @@ function Section1() {
 
 function Section2() {
   return (
-    <div className="w-full h-full bg-gray-50 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-hidden">
+    <div className="w-full h-full bg-gray-50 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-y-auto hide-scrollbar">
       <div className="w-full max-w-7xl h-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16">
         
         <motion.div 
@@ -322,7 +348,7 @@ function Section3() {
   const [openAccordion, setOpenAccordion] = useState(0);
 
   return (
-    <div className="w-full h-full bg-white flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-hidden">
+    <div className="w-full h-full bg-white flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-y-auto hide-scrollbar">
       <div className="w-full max-w-7xl h-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16">
         
         <div className="w-full lg:w-1/2 flex flex-col justify-center h-full max-h-[60%] lg:max-h-full">
@@ -398,7 +424,7 @@ function AccordionItem({ title, isOpen, onToggle }: { title: string, isOpen: boo
 
 function Section4() {
   return (
-    <div className="w-full h-full bg-gradient-to-br from-purple-900 to-brand-900 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-hidden">
+    <div className="w-full h-full bg-gradient-to-br from-purple-900 to-brand-900 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-y-auto hide-scrollbar">
       
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-20 -right-20 md:-top-40 md:-right-40 w-64 h-64 md:w-96 md:h-96 bg-orange-500 rounded-full blur-[100px] md:blur-[150px] opacity-40" />
@@ -431,3 +457,31 @@ function Section4() {
   );
 }
 
+
+function Section5() {
+  return (
+    <div className="w-full h-full bg-white flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-y-auto hide-scrollbar">
+      <div className="relative z-10 w-full max-w-7xl h-full flex flex-col items-center justify-center text-center gap-6 lg:gap-10">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+          className="text-3xl md:text-5xl lg:text-7xl font-heading font-bold text-gray-900 max-w-[800px]"
+        >
+          Ready to Win?
+        </motion.h2>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+          className="text-lg md:text-2xl text-gray-600 max-w-[600px]"
+        >
+          Partner with the top campaign marketing agency to build trust, shape perception, and connect with constituents.
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5 }}
+        >
+          <a href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-brand-600 text-white font-bold text-lg hover:bg-brand-700 transition-colors shadow-xl">
+            Start Your Campaign
+          </a>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
