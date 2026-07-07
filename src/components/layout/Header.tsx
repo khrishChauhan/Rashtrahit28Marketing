@@ -6,8 +6,8 @@ import { Button } from '../ui/Button';
 import { cn } from '../../lib/utils';
 
 const TOP_BAR_CONTACT = {
-  email: "contact@rashtrahit28.com",
-  phone: "+91 98765 43210"
+  email: "abhishekinsan137@gmail.com",
+  phone: "+91 72908 73707"
 };
 
 const NAV_LINKS = [
@@ -21,7 +21,9 @@ const NAV_LINKS = [
       { title: "Search Engine Optimization (SEO)", desc: "Increase organic traffic", href: "/services/search-engine-optimization" },
       { title: "Video Editing", desc: "Professional video marketing", href: "/services/video-editing" },
       { title: "Graphic Designing", desc: "Creative brand identity", href: "/services/graphic-designing" },
-      { title: "Web Designing", desc: "High-impact web solutions", href: "/services/web-designing" }
+      { title: "Web Designing", desc: "High-impact web solutions", href: "/services/web-designing" },
+      { title: "Political Campaign & Marketing", desc: "Strategic political communication", href: "/political" },
+      { title: "Print Media", desc: "Premium printing solutions", href: "/services/print-media" }
     ]
   },
   { label: "Political", href: "/political" },
@@ -50,12 +52,8 @@ function TopBar() {
           <a href="#" className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 hover:bg-white hover:text-brand-900 transition-all hover:scale-105">
             <Instagram className="h-3.5 w-3.5" />
           </a>
-          <a href="#" className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 hover:bg-white hover:text-brand-900 transition-all hover:scale-105">
-            <Twitter className="h-3.5 w-3.5" />
-          </a>
-          <a href="#" className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 hover:bg-white hover:text-brand-900 transition-all hover:scale-105">
-            <Linkedin className="h-3.5 w-3.5" />
-          </a>
+          
+          
         </div>
       </div>
     </div>
@@ -70,7 +68,7 @@ function DesktopNavItem({ link }: { link: any; key?: string | number }) {
 
   return (
     <div 
-      className="relative group px-3 py-2"
+      className="relative group/nav px-3 py-2"
       onMouseEnter={() => isDropdown && setIsOpen(true)}
       onMouseLeave={() => isDropdown && setIsOpen(false)}
     >
@@ -79,8 +77,10 @@ function DesktopNavItem({ link }: { link: any; key?: string | number }) {
           href="#"
           onClick={(e) => e.preventDefault()}
           className={cn(
-            "flex items-center gap-1.5 text-[15px] font-medium transition-colors relative cursor-pointer",
-            isActive ? "text-brand-700" : "text-gray-600 hover:text-brand-700"
+            "flex items-center gap-1.5 text-[15px] font-medium transition-colors relative cursor-pointer group-hover/nav:text-brand-700",
+            isActive ? "text-brand-700" : "text-gray-600",
+            "after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-brand-700 after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100",
+            isActive && "after:scale-x-100"
           )}
         >
           {link.label}
@@ -242,8 +242,8 @@ function MobileMenu({ open, onClose }: { open: boolean, onClose: () => void }) {
             <div className="flex justify-center gap-8 text-gray-400">
               <a href="#" className="hover:text-brand-700 transition-colors hover:scale-110 transform"><Facebook className="h-6 w-6" /></a>
               <a href="#" className="hover:text-brand-700 transition-colors hover:scale-110 transform"><Instagram className="h-6 w-6" /></a>
-              <a href="#" className="hover:text-brand-700 transition-colors hover:scale-110 transform"><Twitter className="h-6 w-6" /></a>
-              <a href="#" className="hover:text-brand-700 transition-colors hover:scale-110 transform"><Linkedin className="h-6 w-6" /></a>
+              
+              
             </div>
           </div>
         </motion.div>

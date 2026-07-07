@@ -5,21 +5,25 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
-  /* Premium Purple (Primary) */
-  --color-brand-50: #f5f3ff;
-  --color-brand-100: #ede9fe;
-  --color-brand-500: #8b5cf6;
-  --color-brand-600: #7c3aed;
-  --color-brand-700: #6d28d9;
-  --color-brand-900: #4c1d95;
+  /* Premium Orange (Primary) */
+  --color-brand-50: #FFF8F1;
+  --color-brand-100: #F3E8D7;
+  --color-brand-200: #F6E7CC;
+  --color-brand-300: #FDBA74;
+  --color-brand-400: #fbbf24;
+  --color-brand-500: #F59E0B;
+  --color-brand-600: #D97706;
+  --color-brand-700: #F59E0B; /* Mapped to Primary since brand-700 is widely used for primary */
+  --color-brand-800: #D97706; /* Mapped to Primary Hover */
+  --color-brand-900: #B45309;
 
-  /* Accent Orange */
-  --color-accent-50: #fff7ed;
-  --color-accent-500: #f97316;
-  --color-accent-600: #ea580c;
+  /* Accent */
+  --color-accent-50: #FFFBF5;
+  --color-accent-500: #FDBA74;
+  --color-accent-600: #F59E0B;
 
   /* Base Colors */
-  --color-bg-base: #fcfcfc;
+  --color-bg-base: #FFFBF5;
   --color-surface: #ffffff;
 }
 

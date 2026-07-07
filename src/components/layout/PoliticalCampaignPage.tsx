@@ -187,7 +187,7 @@ export function PoliticalCampaignPage() {
   };
 
   return (
-    <div className="relative w-full h-[100dvh] bg-brand-900 overflow-hidden select-none font-sans">
+    <div className="relative w-full h-[100dvh] bg-gray-950 overflow-hidden select-none font-sans">
       
       {/* Back Button */}
       <button 
@@ -251,7 +251,7 @@ export function PoliticalCampaignPage() {
 
 function Section1() {
   return (
-    <div className="w-full h-full bg-gradient-to-br from-brand-900 via-brand-800 to-purple-900 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-y-auto hide-scrollbar">
+    <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-y-auto hide-scrollbar">
       <div className="absolute inset-0 z-0">
         <motion.div 
           animate={{ y: [0, -20, 0] }} 
@@ -291,7 +291,7 @@ function Section1() {
             className="relative w-full h-full max-h-[300px] lg:max-h-[600px] rounded-[1.5rem] lg:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10"
           >
             <img src={SECTION_1.image} alt="Political Campaign" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 to-transparent" />
           </motion.div>
         </motion.div>
       </div>
@@ -424,7 +424,7 @@ function AccordionItem({ title, isOpen, onToggle }: { title: string, isOpen: boo
 
 function Section4() {
   return (
-    <div className="w-full h-full bg-gradient-to-br from-purple-900 to-brand-900 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-y-auto hide-scrollbar">
+    <div className="w-full h-full bg-gradient-to-br from-gray-950 to-gray-900 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[80px] overflow-y-auto hide-scrollbar">
       
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-20 -right-20 md:-top-40 md:-right-40 w-64 h-64 md:w-96 md:h-96 bg-orange-500 rounded-full blur-[100px] md:blur-[150px] opacity-40" />
@@ -477,7 +477,7 @@ function Section5() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5 }}
         >
-          <a href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-brand-600 text-white font-bold text-lg hover:bg-brand-700 transition-colors shadow-xl">
+          <a href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-brand-500 text-white font-bold text-lg hover:bg-brand-600 transition-colors shadow-xl">
             Start Your Campaign
           </a>
         </motion.div>

@@ -13,7 +13,7 @@ import {
 const SERVICES_DATA: Record<string, any> = {
   "/services/social-media-management": {
     title: "BEST SOCIAL MEDIA MARKETING AGENCY IN GURGAON",
-    intro: "Boost your online presence with our social media marketing agency in Gurgaon.\n\nWe focus on delivering real growth by building genuine connections with your audience and crafting unique strategies tailored to your business needs.\n\nAt GST Industrial & Marketing Services, we offer top quality social media management designed to strengthen your online identity.\n\nAs a leading agency in the region, we use our expertise in content creation, strategic planning, and delivering outstanding results to help you succeed.",
+    intro: "Boost your online presence with our social media marketing agency in Gurgaon.\n\nWe focus on delivering real growth by building genuine connections with your audience and crafting unique strategies tailored to your business needs.\n\nAt Rashtrahit28Marketing, we offer top quality social media management designed to strengthen your online identity.\n\nAs a leading agency in the region, we use our expertise in content creation, strategic planning, and delivering outstanding results to help you succeed.",
     features: [
       {
         title: "Profile Setup & Strategic Optimization",
@@ -39,7 +39,7 @@ const SERVICES_DATA: Record<string, any> = {
   },
   "/services/search-engine-optimization": {
     title: "BEST SEO SERVICES IN GURGAON",
-    intro: "Boost your online growth with GST Industrial & Marketing Services, offering professional SEO services in Gurgaon designed to improve your search engine rankings and increase organic traffic. Our expert team creates customized SEO strategies that strengthen your online presence, attract potential customers, and help your business stand out in the competitive digital market. From keyword optimization to website performance and digital visibility, we focus on delivering result\n\ndriven SEO solutions that support long-term business growth. Build a stronger brand identity in Gurgaon with smart, effective, and trusted SEO services.",
+    intro: "Boost your online growth with Rashtrahit28Marketing, offering professional SEO services in Gurgaon designed to improve your search engine rankings and increase organic traffic. Our expert team creates customized SEO strategies that strengthen your online presence, attract potential customers, and help your business stand out in the competitive digital market. From keyword optimization to website performance and digital visibility, we focus on delivering result\n\ndriven SEO solutions that support long-term business growth. Build a stronger brand identity in Gurgaon with smart, effective, and trusted SEO services.",
     features: [
       {
         title: "On-page SEO",
@@ -65,7 +65,7 @@ const SERVICES_DATA: Record<string, any> = {
   },
   "/services/video-editing": {
     title: "BEST VIDEO EDITING AGENCY IN GURGAON",
-    intro: "Elevate your brand with GST Industrial & Marketing Services, offering premium Video marketing and Editing services in Gurgaon. We create eye catching reels, promotional videos, and digital content that boost engagement and strengthen your online presence. With creative storytelling and professional editing, every video is designed to leave a lasting impact. In today's digital world, powerful video content is the key to attracting customers and building strong brand value. Stand out in Gurgaon's competitive market with content that truly connects and performs.",
+    intro: "Elevate your brand with Rashtrahit28Marketing, offering premium Video marketing and Editing services in Gurgaon. We create eye catching reels, promotional videos, and digital content that boost engagement and strengthen your online presence. With creative storytelling and professional editing, every video is designed to leave a lasting impact. In today's digital world, powerful video content is the key to attracting customers and building strong brand value. Stand out in Gurgaon's competitive market with content that truly connects and performs.",
     features: [
       {
         title: "Video cutting, trimming & transitions",
@@ -91,7 +91,7 @@ const SERVICES_DATA: Record<string, any> = {
   },
   "/services/graphic-designing": {
     title: "BEST GRAPHIC DESIGNING AGENCY IN GURGAON",
-    intro: "Enhance your brand identity with GST Industrial & Marketing Services, providing professional Graphic Designing Services in Gurgaon. We create eye catching banners, brochures, business cards, packaging, and promotional materials with modern and creative designs. Our high quality print and branding solutions help businesses build strong visibility and customer trust. Stand out in Gurgaon's competitive market with impactful and professionally crafted designs.",
+    intro: "Enhance your brand identity with Rashtrahit28Marketing, providing professional Graphic Designing Services in Gurgaon. We create eye catching banners, brochures, business cards, packaging, and promotional materials with modern and creative designs. Our high quality print and branding solutions help businesses build strong visibility and customer trust. Stand out in Gurgaon's competitive market with impactful and professionally crafted designs.",
     features: [
       {
         title: "Brochure Design",
@@ -127,7 +127,7 @@ const SERVICES_DATA: Record<string, any> = {
   },
   "/services/web-designing": {
     title: "BEST WEB DESIGNING AGENCY IN GURGAON",
-    intro: "Build a powerful online presence with GST Industrial & Marketing Services, offering professional web design services in Gurgaon. We create modern, responsive, and SEO friendly websites that deliver a smooth user experience across all devices. Our expert team focuses on creative designs, fast loading pages, smart layouts, and brand-focused visuals to improve engagement and performance. From corporate websites to landing pages and custom business portals, we develop websites that support digital marketing and generate quality leads. Grow your business with a professional website designed for performance, visibility, and long-term success.",
+    intro: "Build a powerful online presence with Rashtrahit28Marketing, offering professional web design services in Gurgaon. We create modern, responsive, and SEO friendly websites that deliver a smooth user experience across all devices. Our expert team focuses on creative designs, fast loading pages, smart layouts, and brand-focused visuals to improve engagement and performance. From corporate websites to landing pages and custom business portals, we develop websites that support digital marketing and generate quality leads. Grow your business with a professional website designed for performance, visibility, and long-term success.",
     features: [
       {
         title: "Web design and interface design",

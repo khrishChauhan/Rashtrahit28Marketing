@@ -8,46 +8,53 @@ import {
   Search, 
   PenTool, 
   Users,
-  Video
+  Video,
+  Printer
 } from 'lucide-react';
 import { Badge } from '../ui/Badge';
 
 const SERVICES_DATA = [
   {
-    title: "Social Media Management(SMM)",
-    description: "Enhance your brand's online presence by collaborating with Gurgaon’s premier social media marketing agency. Get professional growth, engagement, and strategy for your company!",
+    title: "Social Media",
+    description: "Professional growth, engagement, and strategic content to enhance your online brand.",
     icon: <Users className="h-6 w-6" />,
     href: "/services/social-media-management"
   },
   {
-    title: "Search Engine Optimization (SEO)",
-    description: "The top SEO services in Gurgaon are provided by GST Industrial & Marketing Services, ensuring that your company achieves increased organic traffic and optimal visibility.",
+    title: "SEO",
+    description: "Increase organic traffic and secure optimal visibility across search engines.",
     icon: <Search className="h-6 w-6" />,
     href: "/services/search-engine-optimization"
   },
   {
     title: "Video Editing",
-    description: "Increase brand awareness with Gurgaon’s best video marketing company! Professional video editing services to produce captivating, excellent material that produces outcomes.",
+    description: "Captivating, high-quality visual material designed to produce real outcomes.",
     icon: <Video className="h-6 w-6" />,
     href: "/services/video-editing"
   },
   {
-    title: "Web Designing",
-    description: "GST Marketing Company offers high-impact web design services that help brands build a strong, credible, and conversion-focused online presence. We design modern, responsive,",
+    title: "Web Design",
+    description: "Modern, responsive, and conversion-focused digital experiences for your brand.",
     icon: <MonitorSmartphone className="h-6 w-6" />,
     href: "/services/web-designing"
   },
   {
-    title: "Graphic Designing",
-    description: "Creative social media post services that attract attention, engage audiences, and build strong brand presence every single day. Make your brand memorable with custom logo design services tailored to your vision and business goals.",
+    title: "Graphic Design",
+    description: "Creative visual identity and custom logo design tailored to your vision.",
     icon: <PenTool className="h-6 w-6" />,
     href: "/services/graphic-designing"
   },
   {
-    title: "Political Campaign & Marketing",
-    description: "Political campaigns and marketing play a vital role in building public trust, shaping voter perception, and driving meaningful engagement during elections. As a Top Campaign Marketing Agency in Gurgaon,",
+    title: "Political Campaign",
+    description: "Shape voter perception and drive meaningful engagement during elections.",
     icon: <Megaphone className="h-6 w-6" />,
     href: "/political"
+  },
+  {
+    title: "Print Media",
+    description: "High-quality offline branding, from business essentials to large-format prints.",
+    icon: <Printer className="h-6 w-6" />,
+    href: "/services/print-media"
   }
 ];
 
@@ -82,7 +89,7 @@ export function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-4 md:gap-5 lg:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:gap-5 lg:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES_DATA.map((service, idx) => (
             <motion.div
               key={service.title}

@@ -94,8 +94,7 @@ export function ContactUs() {
                   </div>
                   <div className="flex flex-col pt-1">
                     <span className="text-sm font-semibold text-gray-900 mb-1 uppercase tracking-wider">Phone Numbers</span>
-                    <a href="tel:+919289788922" className="text-gray-600 hover:text-brand-600 transition-colors mb-1">+91 9289788922</a>
-                    <a href="tel:+919999960667" className="text-gray-600 hover:text-brand-600 transition-colors">+91 9999960667</a>
+                    <a href="tel:+917290873707" className="text-gray-600 hover:text-brand-600 transition-colors">+91 7290873707</a>
                   </div>
                 </li>
                 
@@ -105,8 +104,7 @@ export function ContactUs() {
                   </div>
                   <div className="flex flex-col pt-1">
                     <span className="text-sm font-semibold text-gray-900 mb-1 uppercase tracking-wider">Emails</span>
-                    <a href="mailto:info@gstindustrial.co.in" className="text-gray-600 hover:text-brand-600 transition-colors mb-1">info@gstindustrial.co.in</a>
-                    <a href="mailto:gst.industrial2020@gmail.com" className="text-gray-600 hover:text-brand-600 transition-colors">gst.industrial2020@gmail.com</a>
+                    <a href="mailto:abhishekinsan137@gmail.com" className="text-gray-600 hover:text-brand-600 transition-colors">abhishekinsan137@gmail.com</a>
                   </div>
                 </li>
               </ul>

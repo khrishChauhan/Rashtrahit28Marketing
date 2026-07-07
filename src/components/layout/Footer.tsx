@@ -10,7 +10,8 @@ const FOOTER_LINKS = {
     { label: "Video Editing", href: "/services/video-editing" },
     { label: "Graphic Designing", href: "/services/graphic-designing" },
     { label: "Web Designing", href: "/services/web-designing" },
-    { label: "Political Campaign", href: "/political" },
+    { label: "Political Campaign & Marketing", href: "/political" },
+    { label: "Print Media", href: "/services/print-media" }
   ],
   about: [
     { label: "About Us", href: "/about" },
@@ -27,7 +28,7 @@ const SOCIAL_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="bg-gray-950 pt-20 pb-10 text-white selection:bg-brand-500 selection:text-white relative overflow-hidden">
+    <footer className="bg-gray-900 pt-20 pb-10 text-white selection:bg-brand-500 selection:text-white relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-50">
         <div className="absolute top-0 right-0 h-[500px] w-[500px] -translate-y-1/2 translate-x-1/3 rounded-full bg-brand-900/20 blur-[120px]" />
@@ -48,7 +49,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">
-              GST Industrial & Marketing Services offers the best digital marketing services in Gurgaon, specializing in result-driven ad campaigns and strategic social media solutions.
+              Rashtrahit28Marketing offers the best digital marketing services in Gurgaon, specializing in result-driven ad campaigns and strategic social media solutions.
             </p>
             
             {/* Social Icons */}
@@ -58,7 +59,7 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 transition-all duration-300 hover:bg-brand-600 hover:border-brand-500 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-brand-900/20"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 transition-all duration-300 hover:bg-brand-500 hover:border-brand-500 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-brand-900/20"
                 >
                   {social.icon}
                 </a>
@@ -68,13 +69,13 @@ export function Footer() {
           
           {/* Column 2: Quick Links (2 columns wide on lg) */}
           <div className="lg:col-span-2 lg:col-start-6">
-            <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-white">Quick Links</h4>
+            <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-brand-500">Quick Links</h4>
             <ul className="space-y-4">
               {FOOTER_LINKS.quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link 
                     to={link.href} 
-                    className="group inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors duration-300"
+                    className="group inline-flex items-center text-sm text-gray-400 hover:text-brand-500 transition-colors duration-300"
                   >
                     <ChevronRight className="h-3 w-3 mr-2 opacity-0 -ml-5 transition-all duration-300 group-hover:opacity-100 group-hover:ml-0 text-brand-500" />
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -88,13 +89,13 @@ export function Footer() {
           
           {/* Column 3: Services (3 columns wide on lg) */}
           <div className="lg:col-span-3">
-            <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-white">About Me</h4>
+            <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-brand-500">About Me</h4>
             <ul className="space-y-4">
               {FOOTER_LINKS.about.map((link) => (
                 <li key={link.label}>
                   <Link 
                     to={link.href} 
-                    className="group inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors duration-300"
+                    className="group inline-flex items-center text-sm text-gray-400 hover:text-brand-500 transition-colors duration-300"
                   >
                     <ChevronRight className="h-3 w-3 mr-2 opacity-0 -ml-5 transition-all duration-300 group-hover:opacity-100 group-hover:ml-0 text-brand-500" />
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -108,7 +109,7 @@ export function Footer() {
 
           {/* Column 4: Contact (3 columns wide on lg) */}
           <div className="lg:col-span-3">
-            <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-white">Contact Us</h4>
+            <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-brand-500">Contact Us</h4>
             <ul className="space-y-5">
               <li className="group flex items-start gap-4 text-sm text-gray-400 transition-colors duration-300">
                 <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400">
@@ -126,8 +127,7 @@ export function Footer() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Phone Numbers</span>
-                    <a href="tel:+919289788922" className="font-medium hover:text-white transition-colors block mb-1">+91 9289788922</a>
-                    <a href="tel:+919999960667" className="font-medium hover:text-white transition-colors block">+91 9999960667</a>
+                    <a href="tel:+917290873707" className="font-medium hover:text-brand-500 transition-colors block">+91 7290873707</a>
                   </div>
                 </div>
               </li>
@@ -138,8 +138,7 @@ export function Footer() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Emails</span>
-                    <a href="mailto:info@gstindustrial.co.in" className="font-medium hover:text-white transition-colors block mb-1">info@gstindustrial.co.in</a>
-                    <a href="mailto:gst.industrial2020@gmail.com" className="font-medium hover:text-white transition-colors block">gst.industrial2020@gmail.com</a>
+                    <a href="mailto:abhishekinsan137@gmail.com" className="font-medium hover:text-brand-500 transition-colors block">abhishekinsan137@gmail.com</a>
                   </div>
                 </div>
               </li>
@@ -149,10 +148,10 @@ export function Footer() {
         
         {/* Bottom Bar */}
         <div className="flex flex-col flex-col-reverse items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row text-sm text-gray-500">
-          <p>Copyright © 2026 GST Industrial & Marketing Services. All Rights Reserved.</p>
+          <p>Copyright © 2026 Rashtrahit28Marketing. All Rights Reserved.</p>
           <div className="flex items-center gap-8">
-            <span className="hover:text-white transition-colors duration-300">
-              Designed & Developed by GST Industrial & Marketing Services
+            <span className="hover:text-brand-500 transition-colors duration-300">
+              Designed & Developed by Rashtrahit28Marketing
             </span>
           </div>
         </div>

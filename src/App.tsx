@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Header } from "./components/layout/Header";
+import { Hero } from "./components/layout/Hero";
 import { WhatWeDo } from "./components/layout/WhatWeDo";
 import { Services } from "./components/layout/Services";
 import { Team } from "./components/layout/Team";
@@ -14,11 +15,13 @@ import { ContactUs } from "./components/layout/ContactUs";
 import { ServiceDetail } from "./components/layout/ServiceDetail";
 import { Footer } from "./components/layout/Footer";
 import { PoliticalCampaignPage } from "./components/layout/PoliticalCampaignPage";
+import { PrintMediaPage } from "./components/layout/PrintMediaPage";
 import { Button } from "./components/ui/Button";
 
 function HomePage() {
   return (
     <>
+      <Hero />
       <WhatWeDo />
       <Services />
       <ConnectWithUs />
@@ -125,6 +128,11 @@ const SEO_CONFIG: Record<string, { title: string, description: string, canonical
     description: "Creative graphic design and social media post services that attract attention and build a strong brand presence.",
     canonical: "https://rashtrahit28marketing.com/services/graphic-designing"
   },
+  "/services/print-media": {
+    title: "Print Media Solutions | Rashtrahit28Marketing",
+    description: "Premium printing solutions tailored to your business.",
+    canonical: "https://rashtrahit28marketing.com/services/print-media"
+  },
   "/services/web-designing": {
     title: "Web Designing | Rashtrahit28Marketing",
     description: "High-impact web design services to help brands build a strong, credible, and conversion-focused online presence.",
@@ -187,6 +195,7 @@ function AnimatedRoutes() {
         <Route path="/services/video-editing" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
         <Route path="/services/graphic-designing" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
         <Route path="/services/web-designing" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
+        <Route path="/services/print-media" element={<PageWrapper><PrintMediaPage /></PageWrapper>} />
         <Route path="*" element={<PageWrapper><NotFoundPage /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
@@ -196,6 +205,7 @@ function AnimatedRoutes() {
 function AppContent() {
   const location = useLocation();
   const isPoliticalPage = location.pathname === '/political';
+  const isPrintMediaPage = location.pathname === '/services/print-media';
 
   return (
     <div className="min-h-screen bg-bg-base font-sans selection:bg-brand-500 selection:text-white">
@@ -205,7 +215,7 @@ function AppContent() {
       <main>
         <AnimatedRoutes />
       </main>
-      {!isPoliticalPage && <Footer />}
+      {!isPoliticalPage && !isPrintMediaPage && <Footer />}
     </div>
   );
 }
