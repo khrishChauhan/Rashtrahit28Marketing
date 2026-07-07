@@ -24,7 +24,7 @@ export function ContactUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-[2.5rem] border border-gray-100 bg-white p-8 md:p-12 shadow-xl shadow-brand-900/5 relative"
+              className="rounded-[20px] border border-gray-100 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative"
             >
               <h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl font-heading">
                 Send us a Message
@@ -66,7 +66,7 @@ export function ContactUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-[2.5rem] border border-gray-100 bg-white p-8 md:p-12 shadow-lg shadow-brand-900/5 h-full flex flex-col"
+              className="rounded-[20px] border border-gray-100 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] h-full flex flex-col"
             >
               <h2 className="mb-10 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl font-heading">
                 Get in Touch

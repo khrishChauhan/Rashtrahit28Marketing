@@ -62,17 +62,17 @@ export function ConnectWithUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className={`group relative flex flex-col rounded-[2rem] border border-gray-100 bg-white p-6 sm:p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ${platform.color}`}
+              className={`group relative flex flex-col rounded-[20px] border border-gray-100 bg-white p-4 sm:p-5 lg:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-[6px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] ${platform.color}`}
             >
               {/* Header */}
-              <div className="mb-8 flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${platform.iconBg} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
+              <div className="mb-6 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${platform.iconBg} transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3`}>
                     {platform.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 font-heading">{platform.name}</h3>
-                    <p className="text-sm font-medium text-gray-500">{platform.handle}</p>
+                    <h3 className="text-lg font-bold text-gray-900 font-heading m-0">{platform.name}</h3>
+                    <p className="text-xs font-medium text-gray-500 m-0">{platform.handle}</p>
                   </div>
                 </div>
                 <a 
@@ -80,16 +80,16 @@ export function ConnectWithUs() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visit ${platform.name}`}
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-50 text-gray-400 transition-all hover:bg-gray-100 hover:text-gray-900 hover:scale-105"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-50 text-gray-400 transition-all hover:bg-gray-100 hover:text-gray-900 hover:scale-105"
                 >
-                  <ExternalLink className="h-5 w-5" />
+                  <ExternalLink className="h-4 w-4" />
                 </a>
               </div>
 
               {/* Action */}
               <Button 
                 variant="outline" 
-                className="w-full group-hover:border-gray-300 group-hover:bg-gray-50 transition-colors mt-auto"
+                className="w-full h-[42px] group-hover:border-gray-300 group-hover:bg-gray-50 transition-colors mt-auto"
                 onClick={() => window.open(platform.url, '_blank')}
               >
                 {platform.cta}

@@ -82,7 +82,7 @@ export function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+        <div className="grid gap-4 md:gap-5 lg:gap-6 md:grid-cols-2 lg:grid-cols-4">
           {SERVICES_DATA.map((service, idx) => (
             <motion.div
               key={service.title}
@@ -90,24 +90,24 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group flex h-full flex-col rounded-[2.5rem] border border-gray-100 bg-white p-10 shadow-sm transition-all duration-500 hover:-translate-y-3 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-900/10 lg:p-12"
+              className="group flex h-full flex-col rounded-[20px] border border-gray-100 bg-white p-4 sm:p-5 lg:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-[6px] hover:border-brand-200 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
             >
-              <div className="mb-8 inline-flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-brand-50/50 border border-brand-100 text-brand-700 transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-brand-600/30">
+              <div className="mb-3 inline-flex h-[42px] w-[42px] md:h-12 md:w-12 lg:h-14 lg:w-14 shrink-0 items-center justify-center rounded-full bg-brand-50/50 border border-brand-100 text-brand-700 transition-all duration-500 group-hover:scale-105 group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:text-white">
                 {service.icon}
               </div>
               
-              <h3 className="mb-5 text-2xl font-bold text-gray-900 font-heading transition-colors duration-300">
+              <h3 className="mt-0 mb-[10px] text-xl md:text-[22px] lg:text-2xl font-bold text-gray-900 font-heading transition-colors duration-300">
                 {service.title}
               </h3>
               
-              <p className="mb-12 flex-1 text-gray-600 leading-relaxed text-lg">
+              <p className="mb-6 flex-1 text-gray-600 leading-[1.6] text-sm md:text-[15px] lg:text-base">
                 {service.description}
               </p>
               
               <div className="mt-auto">
                 <Link 
                   to={service.href} 
-                  className="inline-flex h-14 w-full sm:w-auto items-center justify-center rounded-full border border-gray-200 bg-transparent px-8 text-sm font-bold text-gray-700 transition-all duration-500 group-hover:border-brand-500 group-hover:bg-brand-50 group-hover:text-brand-700"
+                  className="inline-flex h-[46px] w-full sm:w-auto items-center justify-center rounded-full border border-gray-200 bg-transparent px-6 text-sm font-bold text-gray-700 transition-all duration-500 group-hover:border-brand-500 group-hover:bg-brand-50 group-hover:text-brand-700"
                 >
                   Read More
                   <ArrowRight className="ml-2.5 h-4 w-4 transition-transform duration-500 group-hover:translate-x-2" />

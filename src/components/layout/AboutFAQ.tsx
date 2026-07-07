@@ -126,7 +126,7 @@ export function AboutFAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-[2rem] border border-gray-100 bg-white p-6 md:p-10 shadow-xl shadow-brand-900/5 relative"
+              className="rounded-[20px] border border-gray-100 bg-white p-5 sm:p-6 md:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative"
             >
               {/* Very subtle top border accent */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-1/3 bg-gradient-to-r from-transparent via-brand-300 to-transparent opacity-50" />

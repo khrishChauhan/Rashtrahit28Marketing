@@ -234,18 +234,18 @@ export function ServiceDetail() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="group flex flex-col rounded-[2rem] border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-900/5"
+                className="group flex flex-col rounded-[20px] border border-gray-100 bg-white p-4 sm:p-5 lg:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-[6px] hover:border-brand-200 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
               >
-                <div className="mb-8 inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-50/50 border border-brand-100 text-brand-700 transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:text-white group-hover:rotate-3">
+                <div className="mb-3 inline-flex h-[42px] w-[42px] md:h-12 md:w-12 lg:h-14 lg:w-14 shrink-0 items-center justify-center rounded-[14px] bg-brand-50/50 border border-brand-100 text-brand-700 transition-all duration-500 group-hover:scale-105 group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:text-white group-hover:rotate-3">
                   {feature.icon}
                 </div>
                 
-                <h3 className="mb-4 text-xl font-bold text-gray-900 font-heading transition-colors duration-300">
+                <h3 className="mt-0 mb-[10px] text-lg md:text-xl lg:text-[22px] font-bold text-gray-900 font-heading transition-colors duration-300">
                   {feature.title}
                 </h3>
                 
                 {feature.description && (
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="m-0 text-gray-600 leading-[1.6] text-sm md:text-[15px] lg:text-base">
                     {feature.description}
                   </p>
                 )}

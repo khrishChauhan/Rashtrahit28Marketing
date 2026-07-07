@@ -63,10 +63,10 @@ export function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative flex flex-col rounded-[2rem] border border-gray-100 bg-white p-4 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-900/5"
+              className="group relative flex flex-col rounded-[20px] border border-gray-100 bg-white p-3 sm:p-4 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-[6px] hover:border-brand-200 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
             >
               {/* Profile Image */}
-              <div className="relative mb-6 w-full overflow-hidden rounded-[1.5rem] aspect-[4/5] bg-gray-100">
+              <div className="relative mb-4 w-full overflow-hidden rounded-[14px] aspect-[4/5] bg-gray-100">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -79,29 +79,29 @@ export function Team() {
               </div>
 
               {/* Profile Info */}
-              <div className="flex flex-col items-center text-center px-2 pb-4">
-                <h3 className="mb-1 text-xl font-bold text-gray-900 font-heading transition-colors duration-300 group-hover:text-brand-700">
+              <div className="flex flex-col items-center text-center px-1 pb-2">
+                <h3 className="mb-1 text-lg md:text-xl font-bold text-gray-900 font-heading transition-colors duration-300 group-hover:text-brand-700 m-0">
                   {member.name}
                 </h3>
-                <p className="mb-5 text-sm font-semibold text-brand-600">
+                <p className="mb-3 md:mb-4 text-xs md:text-sm font-semibold text-brand-600 m-0">
                   {member.role}
                 </p>
 
                 {/* Social Icons */}
-                <div className="flex items-center gap-3 text-gray-400">
+                <div className="flex items-center gap-2 text-gray-400">
                   <a 
                     href="#" 
                     aria-label={`${member.name}'s LinkedIn`}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 transition-all duration-300 hover:bg-brand-50 hover:text-brand-700 hover:scale-110"
+                    className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-full bg-gray-50 transition-all duration-300 hover:bg-brand-50 hover:text-brand-700 hover:scale-110"
                   >
-                    <Linkedin className="h-4 w-4" />
+                    <Linkedin className="h-3.5 w-3.5 md:h-4 md:w-4" />
                   </a>
                   <a 
                     href="#" 
                     aria-label={`${member.name}'s Twitter`}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 transition-all duration-300 hover:bg-brand-50 hover:text-brand-700 hover:scale-110"
+                    className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-full bg-gray-50 transition-all duration-300 hover:bg-brand-50 hover:text-brand-700 hover:scale-110"
                   >
-                    <Twitter className="h-4 w-4" />
+                    <Twitter className="h-3.5 w-3.5 md:h-4 md:w-4" />
                   </a>
                 </div>
               </div>

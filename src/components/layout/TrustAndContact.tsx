@@ -58,24 +58,24 @@ export function TrustAndContact() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: 0.1 + idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className="group relative rounded-[2rem] border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-900/5 lg:p-10"
+                  className="group relative rounded-[20px] border border-gray-100 bg-white p-4 sm:p-5 lg:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-[6px] hover:border-brand-200 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
                 >
-                  <Quote className="absolute right-8 top-8 h-10 w-10 text-brand-50 transition-colors duration-500 group-hover:text-brand-100" />
+                  <Quote className="absolute right-5 top-5 sm:right-6 sm:top-6 h-6 w-6 lg:h-8 lg:w-8 text-brand-50 transition-colors duration-500 group-hover:text-brand-100" />
                   
-                  <div className="mb-6 flex gap-1 relative z-10">
+                  <div className="mb-4 flex gap-1 relative z-10">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-accent-500 text-accent-500" />
                     ))}
                   </div>
                   
-                  <p className="mb-8 text-lg leading-relaxed text-gray-700 relative z-10">
+                  <p className="mb-6 text-sm md:text-[15px] lg:text-base leading-[1.6] text-gray-700 relative z-10">
                     "{testimonial.quote}"
                   </p>
                   
-                  <div className="flex items-center gap-4 mt-auto relative z-10">
+                  <div className="flex items-center gap-3 mt-auto relative z-10">
                     <div>
-                      <h4 className="font-bold text-gray-900 font-heading">{testimonial.author}</h4>
-                      <p className="text-sm font-semibold text-gray-500">{testimonial.role}</p>
+                      <h4 className="text-sm md:text-base font-bold text-gray-900 font-heading m-0">{testimonial.author}</h4>
+                      <p className="text-xs md:text-sm font-semibold text-gray-500 m-0">{testimonial.role}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -90,7 +90,7 @@ export function TrustAndContact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-[2rem] border border-gray-100 bg-white p-8 shadow-xl shadow-gray-200/40 sm:p-12 lg:p-14 relative"
+              className="rounded-[20px] border border-gray-100 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative"
             >
               <div className="mb-10">
                 <h3 className="text-3xl font-bold tracking-tight text-gray-900 font-heading mb-4">
