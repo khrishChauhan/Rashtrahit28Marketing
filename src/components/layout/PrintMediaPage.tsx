@@ -146,7 +146,7 @@ export function PrintMediaPage() {
     };
   }, [handleWheel, handleTouchStart, handleTouchMove]);
 
-  const isDarkBg = activeSection === 2 || activeSection === 3;
+  const isDarkBg = activeSection === 0 || activeSection === 2 || activeSection === 3;
   const buttonClasses = isDarkBg
     ? "bg-white/10 border-white/20 text-white hover:bg-white/20"
     : "bg-gray-900/5 border-gray-900/10 text-gray-900 hover:bg-gray-900/10";
@@ -231,15 +231,20 @@ export function PrintMediaPage() {
 
 function PrintHeroSection() {
   return (
-    <div className="w-full h-full bg-white flex items-center justify-center px-4 sm:px-8 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-4 lg:pb-[60px] overflow-y-auto hide-scrollbar">
-      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-orange-100/50 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none" />
+    <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 flex items-center justify-center px-4 sm:px-8 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-4 lg:pb-[60px] overflow-y-auto hide-scrollbar">
+      <div className="absolute inset-0 z-0">
+        <motion.div 
+          animate={{ y: [0, -20, 0] }} 
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"
+        />
+      </div>
 
       <div className="relative z-10 w-full max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16 py-4">
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-            className="text-[1.6rem] sm:text-3xl md:text-4xl lg:text-[3.2rem] font-bold tracking-tight text-gray-900 leading-[1.15] font-heading uppercase mb-4"
+            className="text-[1.6rem] sm:text-3xl md:text-4xl lg:text-[3.2rem] font-bold tracking-tight text-white leading-[1.15] font-heading uppercase mb-4"
           >
             Print Media Solutions
           </motion.h1>
@@ -250,7 +255,7 @@ function PrintHeroSection() {
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-            className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed"
+            className="text-sm sm:text-base lg:text-lg text-brand-100 leading-relaxed"
           >
             At Rashtrahit28Marketing, we provide high-quality print media solutions that help businesses strengthen their offline presence. From business essentials to large-format advertising, our print services are designed with premium quality, creative layouts, and professional finishing to leave a lasting impression.
           </motion.p>
@@ -262,7 +267,7 @@ function PrintHeroSection() {
         >
           <motion.div
             animate={{ y: [-10, 10, -10] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-full max-h-[200px] sm:max-h-[250px] lg:max-h-[520px] rounded-[1.5rem] lg:rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100"
+            className="relative w-full max-h-[200px] sm:max-h-[250px] lg:max-h-[520px] rounded-[1.5rem] lg:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10"
           >
             <img
               src="/images/services/print-media.png"
