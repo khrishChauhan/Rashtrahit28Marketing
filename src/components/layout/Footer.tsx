@@ -62,8 +62,8 @@ export function Footer() {
             </div>
           </div>
           
-          {/* Column 2: Quick Links (2 columns wide on lg) */}
-          <div className="lg:col-span-2 lg:col-start-6">
+          {/* Column 2: Quick Links (3 columns wide on lg) */}
+          <div className="lg:col-span-3">
             <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-brand-500">Quick Links</h4>
             <ul className="space-y-4">
               {FOOTER_LINKS.quickLinks.map((link) => (
@@ -82,8 +82,8 @@ export function Footer() {
             </ul>
           </div>
           
-          {/* Column 3: Services (3 columns wide on lg) */}
-          <div className="lg:col-span-3">
+          {/* Column 3: About (2 columns wide on lg) */}
+          <div className="lg:col-span-2">
             <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-brand-500">About Me</h4>
             <ul className="space-y-4">
               {FOOTER_LINKS.about.map((link) => (
