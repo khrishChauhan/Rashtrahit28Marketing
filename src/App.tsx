@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Header } from "./components/layout/Header";
@@ -43,14 +43,6 @@ function ContactPage() {
   );
 }
 
-function PoliticalPage() {
-  return (
-    <div className="pt-16 md:pt-24">
-      <WhatWeDo />
-      <ContactUs />
-    </div>
-  );
-}
 
 function TeamPage() {
   return (
@@ -98,11 +90,12 @@ function AnimatedRoutes() {
   
   return (
     <AnimatePresence mode="wait">
+      {/* @ts-expect-error - React key on Routes for AnimatePresence */}
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
-        <Route path="/political" element={<PageWrapper><PoliticalPage /></PageWrapper>} />
+        <Route path="/political" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
         <Route path="/team" element={<PageWrapper><TeamPage /></PageWrapper>} />
         <Route path="/services/social-media-management" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
         <Route path="/services/search-engine-optimization" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
