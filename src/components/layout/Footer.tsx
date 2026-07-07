@@ -144,9 +144,9 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 sm:gap-6 border-t border-white/10 pt-8 text-sm text-gray-500">
           <p>Copyright © 2026 Rashtrahit28Marketing. All Rights Reserved.</p>
-          <div className="flex items-center gap-8">
-            <span className="hover:text-brand-500 transition-colors duration-300">
-              Designed & Developed by Rashtrahit28Marketing
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8 text-center sm:text-left">
+            <span className="transition-colors duration-300">
+              Developed by <a href="https://clickaarambh.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 font-medium transition-colors">Click aarambh Ventures</a>
             </span>
           </div>
         </div>

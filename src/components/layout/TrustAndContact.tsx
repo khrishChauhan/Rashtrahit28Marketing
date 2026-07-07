@@ -30,35 +30,36 @@ export function TrustAndContact() {
             </p>
           </div>
 
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <form action="https://formsubmit.co/Rashtrahit28marketing@gmail.com" method="POST" className="space-y-6">
+            <input type="hidden" name="_captcha" value="false" />
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="space-y-2 text-left">
                 <Label htmlFor="name">Name</Label>
-                <Input id="name" placeholder="Name" className="bg-gray-50/50 focus:bg-white" />
+                <Input id="name" name="name" placeholder="Name" className="bg-gray-50/50 focus:bg-white" required />
               </div>
               <div className="space-y-2 text-left">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="Email" className="bg-gray-50/50 focus:bg-white" />
+                <Input id="email" name="email" type="email" placeholder="Email" className="bg-gray-50/50 focus:bg-white" required />
               </div>
             </div>
             
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="space-y-2 text-left">
                 <Label htmlFor="mobile">Mobile No.</Label>
-                <Input id="mobile" type="tel" placeholder="Mobile No." className="bg-gray-50/50 focus:bg-white" />
+                <Input id="mobile" name="mobile" type="tel" placeholder="Mobile No." className="bg-gray-50/50 focus:bg-white" required />
               </div>
               <div className="space-y-2 text-left">
                 <Label htmlFor="address">Address</Label>
-                <Input id="address" placeholder="Address" className="bg-gray-50/50 focus:bg-white" />
+                <Input id="address" name="address" placeholder="Address" className="bg-gray-50/50 focus:bg-white" />
               </div>
             </div>
             
             <div className="space-y-2 text-left">
               <Label htmlFor="description">Description</Label>
-              <Textarea id="description" placeholder="Description" className="bg-gray-50/50 focus:bg-white min-h-[120px]" />
+              <Textarea id="description" name="description" placeholder="Description" className="bg-gray-50/50 focus:bg-white min-h-[120px]" required />
             </div>
             
-            <Button variant="primary" size="lg" className="w-full group mt-6">
+            <Button type="submit" variant="primary" size="lg" className="w-full group mt-6">
               Submit Now
               <Send className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
             </Button>

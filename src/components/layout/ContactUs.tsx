@@ -30,28 +30,29 @@ export function ContactUs() {
                 Send us a Message
               </h2>
               
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form action="https://formsubmit.co/Rashtrahit28marketing@gmail.com" method="POST" className="space-y-6">
+                <input type="hidden" name="_captcha" value="false" />
                 <div className="space-y-2 relative group">
                   <Label htmlFor="fullName">Full Name</Label>
-                  <Input id="fullName" placeholder="Enter your name" className="bg-gray-50/50 focus:bg-white transition-all duration-300" />
+                  <Input id="fullName" name="fullName" placeholder="Enter your name" className="bg-gray-50/50 focus:bg-white transition-all duration-300" required />
                 </div>
                 
                 <div className="space-y-2 relative group">
                   <Label htmlFor="emailAddress">Email Address</Label>
-                  <Input id="emailAddress" type="email" placeholder="Enter your email" className="bg-gray-50/50 focus:bg-white transition-all duration-300" />
+                  <Input id="emailAddress" name="email" type="email" placeholder="Enter your email" className="bg-gray-50/50 focus:bg-white transition-all duration-300" required />
                 </div>
                 
                 <div className="space-y-2 relative group">
                   <Label htmlFor="phoneNumber">Phone Number</Label>
-                  <Input id="phoneNumber" type="tel" placeholder="Enter your phone number" className="bg-gray-50/50 focus:bg-white transition-all duration-300" />
+                  <Input id="phoneNumber" name="phone" type="tel" placeholder="Enter your phone number" className="bg-gray-50/50 focus:bg-white transition-all duration-300" required />
                 </div>
                 
                 <div className="space-y-2 relative group">
                   <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" placeholder="Write your message" className="bg-gray-50/50 focus:bg-white transition-all duration-300 min-h-[120px]" />
+                  <Textarea id="message" name="message" placeholder="Write your message" className="bg-gray-50/50 focus:bg-white transition-all duration-300 min-h-[120px]" required />
                 </div>
                 
-                <Button variant="primary" size="lg" className="w-full group mt-4 h-14 rounded-full text-base">
+                <Button type="submit" variant="primary" size="lg" className="w-full group mt-4 h-14 rounded-full text-base">
                   Send Message
                   <Send className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </Button>

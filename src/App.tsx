@@ -26,6 +26,7 @@ function HomePage() {
       <WhatWeDo />
       <Services />
       <ConnectWithUs />
+      <TeamPageContent />
       <TrustAndContact />
     </>
   );
