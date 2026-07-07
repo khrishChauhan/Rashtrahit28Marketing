@@ -40,13 +40,8 @@ export function Footer() {
           
           {/* Column 1: Logo & Description (4 columns wide on lg) */}
           <div className="lg:col-span-4 flex flex-col items-start">
-            <Link to="/" className="flex items-center gap-3 group mb-6">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-white font-bold font-heading shadow-sm transition-transform duration-300 group-hover:scale-105">
-                R
-              </div>
-              <span className="text-2xl font-bold tracking-tight text-white font-heading">
-                Rashtrahit<span className="text-brand-500">28</span>
-              </span>
+            <Link to="/" className="flex items-center group mb-6">
+              <img src="/images/logo/rlogo.png" alt="Rashtrahit28Marketing" className="h-10 sm:h-12 w-auto object-contain" loading="lazy" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">
               Rashtrahit28Marketing offers the best digital marketing services in Gurgaon, specializing in result-driven ad campaigns and strategic social media solutions.

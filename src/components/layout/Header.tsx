@@ -166,13 +166,8 @@ function MobileMenu({ open, onClose }: { open: boolean, onClose: () => void }) {
         >
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-            <div className="flex items-center gap-2">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white font-bold font-heading shadow-sm">
-                R
-              </div>
-              <span className="text-xl font-bold tracking-tight text-gray-900 font-heading">
-                Rashtrahit<span className="text-brand-700">28</span>
-              </span>
+            <div className="flex items-center">
+              <img src="/images/logo/rlogo.png" alt="Rashtrahit28Marketing" className="h-9 sm:h-10 w-auto object-contain" loading="lazy" />
             </div>
             <button 
               onClick={onClose}
@@ -272,7 +267,7 @@ export function Header() {
         {/* Top Contact Bar */}
         <div 
           className={cn(
-            "w-full transition-all duration-300 origin-top",
+            "hidden md:block w-full transition-all duration-300 origin-top",
             isScrolled ? "h-0 opacity-0 -translate-y-full" : "h-[44px] opacity-100 translate-y-0"
           )}
         >
@@ -290,17 +285,13 @@ export function Header() {
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white font-bold font-heading shadow-sm transition-transform duration-300 group-hover:scale-105 group-hover:shadow-md group-active:scale-95">
-                R
-              </div>
-              <span className="text-2xl font-bold tracking-tight text-gray-900 font-heading">
-                Rashtrahit<span className="text-brand-700">28</span>
-              </span>
+            <Link to="/" className="flex items-center group">
+              <img src="/images/logo/slogo.png" alt="Rashtrahit28Marketing" className="h-10 w-auto sm:hidden object-contain" loading="lazy" />
+              <img src="/images/logo/rlogo.png" alt="Rashtrahit28Marketing" className="h-[48px] lg:h-[56px] w-auto hidden sm:block object-contain" loading="lazy" />
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-2 xl:gap-4">
+            <nav className="hidden xl:flex items-center gap-2 xl:gap-4">
               {NAV_LINKS.map((link) => (
                 <DesktopNavItem key={link.label} link={link} />
               ))}
@@ -308,7 +299,7 @@ export function Header() {
 
             {/* CTA & Mobile Toggle */}
             <div className="flex items-center gap-5">
-              <div className="hidden lg:block">
+              <div className="hidden xl:block">
                 <Button 
                   variant="primary" 
                   className="px-7 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
@@ -317,7 +308,7 @@ export function Header() {
                 </Button>
               </div>
               <button 
-                className="lg:hidden flex items-center justify-center h-11 w-11 rounded-full bg-gray-50 text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                className="xl:hidden flex items-center justify-center h-11 w-11 rounded-full bg-gray-50 text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                 onClick={() => setMobileMenuOpen(true)}
                 aria-label="Open menu"
               >

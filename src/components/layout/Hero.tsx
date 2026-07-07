@@ -6,7 +6,7 @@ import { Button } from '../ui/Button';
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-bg-base pt-24 pb-16 md:pt-32">
+    <section className="relative w-full overflow-hidden bg-bg-base pt-40 pb-20 md:pt-48 lg:pt-56 lg:pb-32">
       {/* Background Decor */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute -left-1/4 -top-1/4 h-[800px] w-[800px] rounded-full bg-brand-50/60 blur-[120px]" />
@@ -20,7 +20,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-100 text-brand-700 font-semibold text-sm mb-8 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-100 text-brand-700 font-semibold text-sm mb-8 shadow-sm whitespace-nowrap">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
