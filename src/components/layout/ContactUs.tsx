@@ -147,7 +147,7 @@ export function ContactUs() {
           
           <div className="w-full h-[400px] md:h-[500px] rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl shadow-brand-900/5 bg-gray-50 relative">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14032.551608670155!2d76.99979313204907!3d28.44520976192276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d182285117469%3A0xc34125b29b7bb6!2sSector%207%2C%20Gurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1709664593922!5m2!1sen!2sin" 
+              src="https://maps.google.com/maps?q=592%2FD-14%2C%20Sec-5%20Sheetla%20Colony%20Gurugram%2C%20Pincode-12201&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 

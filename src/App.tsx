@@ -8,6 +8,7 @@ import { TrustAndContact } from "./components/layout/TrustAndContact";
 import { AboutIntro } from "./components/layout/AboutIntro";
 import { AboutFAQ } from "./components/layout/AboutFAQ";
 import { ContactUs } from "./components/layout/ContactUs";
+import { ServiceDetail } from "./components/layout/ServiceDetail";
 import { Footer } from "./components/layout/Footer";
 
 function HomePage() {
@@ -55,6 +56,7 @@ export default function App() {
   const renderContent = () => {
     if (currentHash === '#about') return <AboutPage />;
     if (currentHash === '#contact') return <ContactPage />;
+    if (currentHash === '#service') return <ServiceDetail />;
     return <HomePage />;
   };
 

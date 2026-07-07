@@ -24,7 +24,7 @@ const NAV_LINKS = [
   },
   { label: "Political", href: "#" },
   { label: "Team", href: "#" },
-  { label: "Contact Us", href: "#" }
+  { label: "Contact Us", href: "#contact" }
 ];
 
 function TopBar() {
@@ -170,6 +170,7 @@ function MobileMenu({ open, onClose }: { open: boolean, onClose: () => void }) {
                 >
                   <a 
                     href={link.href} 
+                    onClick={onClose}
                     className={cn(
                       "text-3xl font-semibold tracking-tight transition-colors",
                       link.active ? "text-brand-700" : "text-gray-900 hover:text-brand-700"
