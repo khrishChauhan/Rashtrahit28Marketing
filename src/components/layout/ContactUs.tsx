@@ -1,0 +1,165 @@
+import React from 'react';
+import { motion } from 'motion/react';
+import { MapPin, Phone, Mail, Instagram, Facebook, Send } from 'lucide-react';
+import { Badge } from '../ui/Badge';
+import { Button } from '../ui/Button';
+import { Input, Textarea, Label } from '../ui/Form';
+
+export function ContactUs() {
+  return (
+    <section className="relative overflow-hidden bg-bg-base py-24 md:py-32">
+      {/* Subtle Background Elements */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 right-[20%] h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-brand-50/40 blur-[120px]" />
+        <div className="absolute bottom-0 left-[10%] h-[500px] w-[500px] translate-y-1/3 rounded-full bg-accent-50/30 blur-[120px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 mb-24">
+          
+          {/* Left Side: Contact Form (55%) */}
+          <div className="w-full lg:w-[55%] flex flex-col">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-[2.5rem] border border-gray-100 bg-white p-8 md:p-12 shadow-xl shadow-brand-900/5 relative"
+            >
+              <h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl font-heading">
+                Send us a Message
+              </h2>
+              
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="space-y-2 relative group">
+                  <Label htmlFor="fullName">Full Name</Label>
+                  <Input id="fullName" placeholder="Enter your name" className="bg-gray-50/50 focus:bg-white transition-all duration-300" />
+                </div>
+                
+                <div className="space-y-2 relative group">
+                  <Label htmlFor="emailAddress">Email Address</Label>
+                  <Input id="emailAddress" type="email" placeholder="Enter your email" className="bg-gray-50/50 focus:bg-white transition-all duration-300" />
+                </div>
+                
+                <div className="space-y-2 relative group">
+                  <Label htmlFor="phoneNumber">Phone Number</Label>
+                  <Input id="phoneNumber" type="tel" placeholder="Enter your phone number" className="bg-gray-50/50 focus:bg-white transition-all duration-300" />
+                </div>
+                
+                <div className="space-y-2 relative group">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea id="message" placeholder="Write your message" className="bg-gray-50/50 focus:bg-white transition-all duration-300 min-h-[120px]" />
+                </div>
+                
+                <Button variant="primary" size="lg" className="w-full group mt-4 h-14 rounded-full text-base">
+                  Send Message
+                  <Send className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </Button>
+              </form>
+            </motion.div>
+          </div>
+
+          {/* Right Side: Contact Information (45%) */}
+          <div className="w-full lg:w-[45%] flex flex-col justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-[2.5rem] border border-gray-100 bg-white p-8 md:p-12 shadow-lg shadow-brand-900/5 h-full flex flex-col"
+            >
+              <h2 className="mb-10 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl font-heading">
+                Get in Touch
+              </h2>
+              
+              <ul className="space-y-8 flex-1">
+                <li className="flex items-start gap-6 group">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-700 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div className="flex flex-col pt-1">
+                    <span className="text-sm font-semibold text-gray-900 mb-1 uppercase tracking-wider">Address</span>
+                    <span className="text-gray-600 leading-relaxed">
+                      28, Urban Estate,<br />
+                      Sector-7,<br />
+                      Gurugram,<br />
+                      Haryana - 122001
+                    </span>
+                  </div>
+                </li>
+                
+                <li className="flex items-start gap-6 group">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-700 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div className="flex flex-col pt-1">
+                    <span className="text-sm font-semibold text-gray-900 mb-1 uppercase tracking-wider">Phone Numbers</span>
+                    <a href="tel:+919289788922" className="text-gray-600 hover:text-brand-600 transition-colors mb-1">+91 9289788922</a>
+                    <a href="tel:+919999960667" className="text-gray-600 hover:text-brand-600 transition-colors">+91 9999960667</a>
+                  </div>
+                </li>
+                
+                <li className="flex items-start gap-6 group">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-700 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
+                    <Mail className="h-5 w-5" />
+                  </div>
+                  <div className="flex flex-col pt-1">
+                    <span className="text-sm font-semibold text-gray-900 mb-1 uppercase tracking-wider">Emails</span>
+                    <a href="mailto:info@gstindustrial.co.in" className="text-gray-600 hover:text-brand-600 transition-colors mb-1">info@gstindustrial.co.in</a>
+                    <a href="mailto:gst.industrial2020@gmail.com" className="text-gray-600 hover:text-brand-600 transition-colors">gst.industrial2020@gmail.com</a>
+                  </div>
+                </li>
+              </ul>
+              
+              <div className="mt-12 pt-8 border-t border-gray-100 flex items-center gap-4">
+                <a 
+                  href="https://www.instagram.com/_abhishek_2805/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-brand-50 hover:text-brand-700 transition-all hover:scale-110"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a 
+                  href="https://www.facebook.com/Aj2805" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-brand-50 hover:text-brand-700 transition-all hover:scale-110"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        
+        {/* Full-width Google Map */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col items-center"
+        >
+          <Badge variant="subtle" className="mb-6">Our Office Location</Badge>
+          
+          <div className="w-full h-[400px] md:h-[500px] rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl shadow-brand-900/5 bg-gray-50 relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14032.551608670155!2d76.99979313204907!3d28.44520976192276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d182285117469%3A0xc34125b29b7bb6!2sSector%207%2C%20Gurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1709664593922!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen={false} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0"
+              title="Google Map Location"
+            ></iframe>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

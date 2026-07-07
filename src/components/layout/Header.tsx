@@ -11,7 +11,7 @@ const TOP_BAR_CONTACT = {
 
 const NAV_LINKS = [
   { label: "Home", href: "#", active: true },
-  { label: "About Us", href: "#" },
+  { label: "About Us", href: "#about" },
   { 
     label: "Services", 
     href: "#",
@@ -60,7 +60,7 @@ function TopBar() {
   );
 }
 
-function DesktopNavItem({ link }: { link: any }) {
+function DesktopNavItem({ link }: { link: any; key?: string | number }) {
   const [isOpen, setIsOpen] = useState(false);
   const isDropdown = !!link.dropdown;
 

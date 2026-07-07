@@ -7,18 +7,16 @@ import { Badge } from '../ui/Badge';
 
 const TESTIMONIALS = [
   {
-    quote: "Rashtrahit28 entirely transformed our digital presence. Their attention to detail and strategic foresight resulted in a 300% increase in qualified leads.",
-    author: "Elena Rostova",
-    role: "CMO, TechGlobal",
+    quote: "Excellent service and support. Their digital strategy helped us grow our brand",
+    author: "Amit Sharma",
+    role: "Business Owner",
     rating: 5,
-    image: "https://i.pravatar.cc/150?img=44"
   },
   {
-    quote: "The most professional agency we have ever partnered with. The design system they established is timeless and fundamentally improved our brand trust.",
-    author: "Marcus Vance",
-    role: "CEO, Vance & Co",
+    quote: "My reason for claiming Digital Marketing King as the best Website designing company",
+    author: "Rajesh Gupta",
+    role: "CEO, Gupta & Sons",
     rating: 5,
-    image: "https://i.pravatar.cc/150?img=11"
   }
 ];
 
@@ -75,12 +73,6 @@ export function TrustAndContact() {
                   </p>
                   
                   <div className="flex items-center gap-4 mt-auto relative z-10">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.author} 
-                      className="h-12 w-12 rounded-full object-cover ring-2 ring-gray-50"
-                      loading="lazy"
-                    />
                     <div>
                       <h4 className="font-bold text-gray-900 font-heading">{testimonial.author}</h4>
                       <p className="text-sm font-semibold text-gray-500">{testimonial.role}</p>
@@ -112,27 +104,33 @@ export function TrustAndContact() {
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Jane" className="bg-gray-50/50 focus:bg-white" />
+                    <Label htmlFor="name">Name</Label>
+                    <Input id="name" placeholder="Name" className="bg-gray-50/50 focus:bg-white" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Doe" className="bg-gray-50/50 focus:bg-white" />
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" placeholder="Email" className="bg-gray-50/50 focus:bg-white" />
+                  </div>
+                </div>
+                
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="mobile">Mobile No.</Label>
+                    <Input id="mobile" type="tel" placeholder="Mobile No." className="bg-gray-50/50 focus:bg-white" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="address">Address</Label>
+                    <Input id="address" placeholder="Address" className="bg-gray-50/50 focus:bg-white" />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Work Email</Label>
-                  <Input id="email" type="email" placeholder="jane@company.com" className="bg-gray-50/50 focus:bg-white" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="message">Project Details</Label>
-                  <Textarea id="message" placeholder="Tell us about your goals..." className="bg-gray-50/50 focus:bg-white" />
+                  <Label htmlFor="description">Description</Label>
+                  <Textarea id="description" placeholder="Description" className="bg-gray-50/50 focus:bg-white" />
                 </div>
                 
                 <Button variant="primary" size="lg" className="w-full group mt-4">
-                  Send Message
+                  Submit Now
                   <Send className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </Button>
                 

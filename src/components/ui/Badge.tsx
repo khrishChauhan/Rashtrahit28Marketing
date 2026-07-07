@@ -1,11 +1,13 @@
 import React from "react";
 import { cn } from "../../lib/utils";
 
-interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+interface BadgeProps {
   variant?: "default" | "accent" | "outline" | "subtle";
+  className?: string;
+  children?: React.ReactNode;
 }
 
-export function Badge({ className, variant = "default", ...props }: BadgeProps) {
+export function Badge({ className, variant = "default", children, ...props }: BadgeProps & React.HTMLAttributes<HTMLDivElement>) {
   const variants = {
     default: "bg-brand-100 text-brand-700",
     accent: "bg-accent-50 text-accent-700",
@@ -21,6 +23,8 @@ export function Badge({ className, variant = "default", ...props }: BadgeProps) 
         className
       )}
       {...props}
-    />
+    >
+      {children}
+    </div>
   );
 }

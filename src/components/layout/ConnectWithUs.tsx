@@ -8,30 +8,20 @@ const SOCIAL_PLATFORMS = [
   {
     name: "Instagram",
     icon: <Instagram className="h-6 w-6" />,
-    handle: "@rashtrahit28",
+    handle: "@_abhishek_2805",
     color: "hover:border-pink-200 hover:shadow-pink-500/5",
     iconBg: "bg-pink-50 text-pink-600",
-  },
-  {
-    name: "LinkedIn",
-    icon: <Linkedin className="h-6 w-6" />,
-    handle: "Rashtrahit28 Marketing",
-    color: "hover:border-blue-200 hover:shadow-blue-600/5",
-    iconBg: "bg-blue-50 text-blue-600",
+    url: "https://www.instagram.com/_abhishek_2805/",
+    cta: "Visit Instagram"
   },
   {
     name: "Facebook",
     icon: <Facebook className="h-6 w-6" />,
-    handle: "Rashtrahit28",
+    handle: "Aj2805",
     color: "hover:border-blue-200 hover:shadow-blue-500/5",
     iconBg: "bg-blue-50 text-blue-600",
-  },
-  {
-    name: "YouTube",
-    icon: <Youtube className="h-6 w-6" />,
-    handle: "Rashtrahit28 Agency",
-    color: "hover:border-red-200 hover:shadow-red-500/5",
-    iconBg: "bg-red-50 text-red-600",
+    url: "https://www.facebook.com/Aj2805",
+    cta: "Visit Facebook"
   }
 ];
 
@@ -86,7 +76,9 @@ export function ConnectWithUs() {
                   </div>
                 </div>
                 <a 
-                  href="#" 
+                  href={platform.url} 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={`Visit ${platform.name}`}
                   className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-50 text-gray-400 transition-all hover:bg-gray-100 hover:text-gray-900 hover:scale-105"
                 >
@@ -94,21 +86,13 @@ export function ConnectWithUs() {
                 </a>
               </div>
 
-              {/* Mock Embed Content Area */}
-              <div className="relative mb-8 flex-1 w-full overflow-hidden rounded-[1.5rem] bg-gray-50/80 aspect-video flex flex-col items-center justify-center border border-gray-100/50 p-6 text-center">
-                <div className="mb-3 rounded-full bg-white p-3 shadow-sm text-gray-300">
-                  {React.cloneElement(platform.icon, { className: 'h-6 w-6' })}
-                </div>
-                <p className="text-sm font-semibold text-gray-500">Embedded {platform.name} Feed</p>
-                <p className="mt-1 text-xs font-medium text-gray-400">Widget loads here</p>
-                
-                {/* Subtle Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-100/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              </div>
-
               {/* Action */}
-              <Button variant="outline" className="w-full group-hover:border-gray-300 group-hover:bg-gray-50 transition-colors">
-                Follow on {platform.name}
+              <Button 
+                variant="outline" 
+                className="w-full group-hover:border-gray-300 group-hover:bg-gray-50 transition-colors mt-auto"
+                onClick={() => window.open(platform.url, '_blank')}
+              >
+                {platform.cta}
               </Button>
             </motion.div>
           ))}

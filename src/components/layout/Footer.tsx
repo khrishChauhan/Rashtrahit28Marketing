@@ -2,21 +2,18 @@ import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin, ChevronRight } from 'lucide-react';
 
 const FOOTER_LINKS = {
-  company: [
+  quickLinks: [
+    { label: "Home", href: "#" },
+    { label: "Social Media Management (SMM)", href: "#" },
+    { label: "Search Engine Optimization (SEO)", href: "#" },
+    { label: "Video Editing", href: "#" },
+    { label: "Graphic Designing", href: "#" },
+    { label: "Web Designing", href: "#" },
+    { label: "Political Campaign", href: "#" },
+  ],
+  about: [
     { label: "About Us", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Insights", href: "#" },
-    { label: "Contact", href: "#" },
-  ],
-  services: [
-    { label: "Digital Strategy", href: "#" },
-    { label: "Brand Identity", href: "#" },
-    { label: "Performance Marketing", href: "#" },
-    { label: "Web Experiences", href: "#" },
-  ],
-  legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
+    { label: "Team", href: "#" },
   ]
 };
 
@@ -50,7 +47,7 @@ export function Footer() {
               </span>
             </a>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">
-              We engineer digital growth through premium marketing strategies, timeless design, and modern technology.
+              GST Industrial & Marketing Services offers the best digital marketing services in Gurgaon, specializing in result-driven ad campaigns and strategic social media solutions.
             </p>
             
             {/* Social Icons */}
@@ -70,9 +67,9 @@ export function Footer() {
           
           {/* Column 2: Quick Links (2 columns wide on lg) */}
           <div className="lg:col-span-2 lg:col-start-6">
-            <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-white">Company</h4>
+            <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-white">Quick Links</h4>
             <ul className="space-y-4">
-              {FOOTER_LINKS.company.map((link) => (
+              {FOOTER_LINKS.quickLinks.map((link) => (
                 <li key={link.label}>
                   <a 
                     href={link.href} 
@@ -90,9 +87,9 @@ export function Footer() {
           
           {/* Column 3: Services (3 columns wide on lg) */}
           <div className="lg:col-span-3">
-            <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-white">Services</h4>
+            <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-white">About Me</h4>
             <ul className="space-y-4">
-              {FOOTER_LINKS.services.map((link) => (
+              {FOOTER_LINKS.about.map((link) => (
                 <li key={link.label}>
                   <a 
                     href={link.href} 
@@ -112,35 +109,37 @@ export function Footer() {
           <div className="lg:col-span-3">
             <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-white">Contact Us</h4>
             <ul className="space-y-5">
-              <li>
-                <a href="mailto:contact@rashtrahit28.com" className="group flex items-start gap-4 text-sm text-gray-400 hover:text-white transition-colors duration-300">
-                  <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 transition-colors duration-300 group-hover:bg-brand-900 group-hover:text-brand-400 group-hover:border-brand-800">
-                    <Mail className="h-3.5 w-3.5" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Email</span>
-                    <span className="font-medium">contact@rashtrahit28.com</span>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="tel:+919876543210" className="group flex items-start gap-4 text-sm text-gray-400 hover:text-white transition-colors duration-300">
-                  <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 transition-colors duration-300 group-hover:bg-brand-900 group-hover:text-brand-400 group-hover:border-brand-800">
-                    <Phone className="h-3.5 w-3.5" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Phone</span>
-                    <span className="font-medium">+91 98765 43210</span>
-                  </div>
-                </a>
-              </li>
               <li className="group flex items-start gap-4 text-sm text-gray-400 transition-colors duration-300">
                 <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400">
                   <MapPin className="h-3.5 w-3.5" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Location</span>
-                  <span className="font-medium leading-relaxed">Mumbai, Maharashtra<br />India</span>
+                  <span className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Address</span>
+                  <span className="font-medium leading-relaxed">28, Urban Estate, Sector-7,<br />Gurugram, Haryana - 122001</span>
+                </div>
+              </li>
+              <li>
+                <div className="group flex items-start gap-4 text-sm text-gray-400 transition-colors duration-300">
+                  <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 transition-colors duration-300 group-hover:bg-brand-900 group-hover:text-brand-400 group-hover:border-brand-800">
+                    <Phone className="h-3.5 w-3.5" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Phone Numbers</span>
+                    <a href="tel:+919289788922" className="font-medium hover:text-white transition-colors block mb-1">+91 9289788922</a>
+                    <a href="tel:+919999960667" className="font-medium hover:text-white transition-colors block">+91 9999960667</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="group flex items-start gap-4 text-sm text-gray-400 transition-colors duration-300">
+                  <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-400 transition-colors duration-300 group-hover:bg-brand-900 group-hover:text-brand-400 group-hover:border-brand-800">
+                    <Mail className="h-3.5 w-3.5" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Emails</span>
+                    <a href="mailto:info@gstindustrial.co.in" className="font-medium hover:text-white transition-colors block mb-1">info@gstindustrial.co.in</a>
+                    <a href="mailto:gst.industrial2020@gmail.com" className="font-medium hover:text-white transition-colors block">gst.industrial2020@gmail.com</a>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -149,17 +148,11 @@ export function Footer() {
         
         {/* Bottom Bar */}
         <div className="flex flex-col flex-col-reverse items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row text-sm text-gray-500">
-          <p>© 2026 Rashtrahit28Marketing. All rights reserved.</p>
+          <p>Copyright © 2026 GST Industrial & Marketing Services. All Rights Reserved.</p>
           <div className="flex items-center gap-8">
-            {FOOTER_LINKS.legal.map((link) => (
-              <a 
-                key={link.label}
-                href={link.href} 
-                className="hover:text-white transition-colors duration-300"
-              >
-                {link.label}
-              </a>
-            ))}
+            <span className="hover:text-white transition-colors duration-300">
+              Designed & Developed by GST Industrial & Marketing Services
+            </span>
           </div>
         </div>
       </div>

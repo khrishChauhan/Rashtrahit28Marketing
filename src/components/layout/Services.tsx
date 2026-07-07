@@ -4,72 +4,78 @@ import {
   ArrowRight, 
   MonitorSmartphone, 
   Megaphone, 
-  LineChart, 
   Search, 
   PenTool, 
-  Users 
+  Users,
+  Video
 } from 'lucide-react';
 import { Badge } from '../ui/Badge';
 
 const SERVICES_DATA = [
   {
-    title: "Digital Strategy",
-    description: "Data-driven roadmaps designed to scale your brand and maximize ROI across all premium digital channels.",
-    icon: <MonitorSmartphone className="h-6 w-6" />
+    title: "Social Media Management(SMM)",
+    description: "Enhance your brand's online presence by collaborating with Gurgaon’s premier social media marketing agency. Get professional growth, engagement, and strategy for your company!",
+    icon: <Users className="h-6 w-6" />
   },
   {
-    title: "Performance Marketing",
-    description: "Precision-targeted campaigns engineered to convert high-value prospects into long-term loyal clients.",
-    icon: <LineChart className="h-6 w-6" />
-  },
-  {
-    title: "Political Campaigns",
-    description: "Strategic political communication and comprehensive campaign management to drive voter engagement.",
-    icon: <Megaphone className="h-6 w-6" />
-  },
-  {
-    title: "Brand Identity",
-    description: "We build strong, memorable brand identities that connect with your audience and establish lasting market presence.",
-    icon: <PenTool className="h-6 w-6" />
-  },
-  {
-    title: "SEO Optimization",
-    description: "Advanced search engine optimization strategies to ensure your brand ranks highest for critical industry keywords.",
+    title: "Search Engine Optimization (SEO)",
+    description: "The top SEO services in Gurgaon are provided by GST Industrial & Marketing Services, ensuring that your company achieves increased organic traffic and optimal visibility.",
     icon: <Search className="h-6 w-6" />
   },
   {
-    title: "Social Media Management",
-    description: "Engaging content creation and community management that builds authentic relationships with your audience.",
-    icon: <Users className="h-6 w-6" />
+    title: "Video Editing",
+    description: "Increase brand awareness with Gurgaon’s best video marketing company! Professional video editing services to produce captivating, excellent material that produces outcomes.",
+    icon: <Video className="h-6 w-6" />
+  },
+  {
+    title: "Web Designing",
+    description: "GST Marketing Company offers high-impact web design services that help brands build a strong, credible, and conversion-focused online presence. We design modern, responsive,",
+    icon: <MonitorSmartphone className="h-6 w-6" />
+  },
+  {
+    title: "Graphic Designing",
+    description: "Creative social media post services that attract attention, engage audiences, and build strong brand presence every single day. Make your brand memorable with custom logo design services tailored to your vision and business goals.",
+    icon: <PenTool className="h-6 w-6" />
+  },
+  {
+    title: "Political Campaign & Marketing",
+    description: "Political campaigns and marketing play a vital role in building public trust, shaping voter perception, and driving meaningful engagement during elections. As a Top Campaign Marketing Agency in Gurgaon,",
+    icon: <Megaphone className="h-6 w-6" />
   }
 ];
 
 export function Services() {
   return (
-    <section className="relative overflow-hidden bg-bg-base py-24 md:py-32">
+    <section className="relative overflow-hidden bg-bg-base py-32 md:py-40">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute left-1/2 top-0 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-50/40 blur-[120px]" />
+        <div className="absolute left-1/2 top-0 h-[1000px] w-[1000px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-brand-50/50 blur-[120px]" />
+        <div className="absolute right-0 bottom-0 h-[800px] w-[800px] translate-x-1/3 translate-y-1/3 rounded-full bg-accent-50/40 blur-[120px]" />
+        {/* Tiny geometric decorations */}
+        <div className="absolute top-[20%] left-[10%] h-2 w-2 rounded-full bg-brand-200" />
+        <div className="absolute bottom-[20%] right-[15%] h-3 w-3 rounded-full bg-accent-200" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
         {/* Section Header */}
-        <div className="mx-auto mb-20 flex max-w-2xl flex-col items-center text-center">
+        <div className="mx-auto mb-24 flex max-w-2xl flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center"
           >
             <Badge variant="subtle" className="mb-6">Welcome</Badge>
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-[3.5rem] font-heading">
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-[4rem] font-heading mb-8">
               to Our Services
             </h2>
+            <div className="h-1 w-20 bg-brand-500 rounded-full" />
           </motion.div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
           {SERVICES_DATA.map((service, idx) => (
             <motion.div
               key={service.title}
@@ -77,27 +83,27 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group flex h-full flex-col rounded-[2rem] border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-900/5 lg:p-10"
+              className="group flex h-full flex-col rounded-[2.5rem] border border-gray-100 bg-white p-10 shadow-sm transition-all duration-500 hover:-translate-y-3 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-900/10 lg:p-12"
             >
-              <div className="mb-8 inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white group-hover:shadow-md group-hover:shadow-brand-600/20">
+              <div className="mb-8 inline-flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-brand-50/50 border border-brand-100 text-brand-700 transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-brand-600/30">
                 {service.icon}
               </div>
               
-              <h3 className="mb-4 text-2xl font-bold text-gray-900 font-heading transition-colors duration-300 group-hover:text-brand-700">
+              <h3 className="mb-5 text-2xl font-bold text-gray-900 font-heading transition-colors duration-300">
                 {service.title}
               </h3>
               
-              <p className="mb-10 flex-1 text-gray-600 leading-relaxed">
+              <p className="mb-12 flex-1 text-gray-600 leading-relaxed text-lg">
                 {service.description}
               </p>
               
               <div className="mt-auto">
                 <a 
                   href="#" 
-                  className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-gray-50 px-6 text-sm font-bold text-gray-900 transition-all duration-300 group-hover:bg-brand-50 group-hover:text-brand-700 sm:w-auto"
+                  className="inline-flex h-14 w-full sm:w-auto items-center justify-center rounded-full border border-gray-200 bg-transparent px-8 text-sm font-bold text-gray-700 transition-all duration-500 group-hover:border-brand-500 group-hover:bg-brand-50 group-hover:text-brand-700"
                 >
                   Read More
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  <ArrowRight className="ml-2.5 h-4 w-4 transition-transform duration-500 group-hover:translate-x-2" />
                 </a>
               </div>
             </motion.div>

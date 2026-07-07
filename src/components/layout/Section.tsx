@@ -1,11 +1,13 @@
 import React from "react";
 import { cn } from "../../lib/utils";
 
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+interface SectionProps {
   variant?: "default" | "muted" | "dark" | "brand";
+  className?: string;
+  children?: React.ReactNode;
 }
 
-export function Section({ className, variant = "default", children, ...props }: SectionProps) {
+export function Section({ className, variant = "default", children, ...props }: SectionProps & React.HTMLAttributes<HTMLElement>) {
   const variants = {
     default: "bg-bg-base",
     muted: "bg-gray-50",
