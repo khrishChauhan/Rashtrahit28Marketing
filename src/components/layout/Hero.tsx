@@ -1,62 +1,102 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Play, Rocket, TrendingUp } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 export function Hero() {
   return (
-    <section className="relative w-full overflow-hidden bg-bg-base pt-40 pb-20 md:pt-48 lg:pt-56 lg:pb-32">
-      {/* Background Decor */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute -left-1/4 -top-1/4 h-[800px] w-[800px] rounded-full bg-brand-50/60 blur-[120px]" />
-        <div className="absolute -bottom-1/4 -right-1/4 h-[800px] w-[800px] rounded-full bg-accent-50/60 blur-[120px]" />
-      </div>
+    <section className="relative w-full min-h-[calc(100vh-80px)] flex items-center overflow-hidden bg-white pt-32 pb-20 md:pt-40 lg:pt-48 lg:pb-32">
+      {/* Subtle Background Elements */}
+      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-orange-100/50 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 w-full">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        {/* Left Content */}
+        <div className="lg:col-span-6 xl:col-span-7 space-y-8 z-10 mt-8 lg:mt-0">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-100 text-brand-700 font-semibold text-sm shadow-sm"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-100 text-brand-700 font-semibold text-sm mb-8 shadow-sm whitespace-nowrap">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
-              </span>
-              Leading Digital Marketing Agency in Gurgaon
+            <Rocket className="h-4 w-4" />
+            <span className="uppercase tracking-wider">Strategic Excellence</span>
+          </motion.div>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-[4rem] font-bold tracking-tight text-gray-900 leading-[1.1] font-heading"
+          >
+            Elevate Your Brand With <span className="text-brand-600">Strategic</span> Marketing
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl"
+          >
+            Premium SEO, Social Media Management, Web Design, and Political Campaign strategies to drive real growth for your business.
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-start gap-4 pt-4"
+          >
+            <Link to="/about" className="w-full sm:w-auto">
+              <Button variant="primary" size="lg" className="w-full px-8 py-4 text-base rounded-2xl group shadow-lg shadow-brand-500/20 hover:shadow-brand-500/30">
+                Discover Our Services
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full px-8 py-4 text-base rounded-2xl bg-white hover:bg-gray-50 border-2 group">
+                <Play className="mr-2 h-4 w-4 text-brand-500 transition-transform duration-300 group-hover:scale-110" />
+                Contact Us Now
+              </Button>
+            </Link>
+          </motion.div>
+
+
+        </div>
+
+        {/* Right Content: Asymmetrical Illustration */}
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="lg:col-span-6 xl:col-span-5 relative mt-16 lg:mt-0"
+        >
+          <div className="relative group mx-4 sm:mx-0">
+            {/* Framing Elements */}
+            <div className="absolute -inset-4 bg-gradient-to-tr from-orange-200/40 to-blue-200/40 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="relative bg-white p-3 rounded-[2.5rem] shadow-2xl border border-gray-100 overflow-hidden">
+              <img 
+                src="/digital-marketing.png" 
+                alt="Strategic Marketing Illustration" 
+                className="w-full h-auto object-cover rounded-[2rem]"
+                loading="lazy"
+              />
             </div>
             
-            <h1 className="mb-6 text-5xl font-bold tracking-tight text-gray-900 md:text-6xl lg:text-[5rem] lg:leading-[1.1] font-heading">
-              Elevate Your Brand With <span className="text-brand-700 relative">
-                Strategic Marketing
-                <svg className="absolute -bottom-2 left-0 w-full h-3 text-brand-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="4" fill="none" />
-                </svg>
-              </span>
-            </h1>
-
-            <p className="mb-10 text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Rashtrahit28Marketing delivers premium SEO, Social Media Management, Web Design, and Political Campaign strategies to drive real growth for your business.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/about">
-                <Button variant="primary" size="lg" className="w-full sm:w-auto px-8 py-4 text-base group">
-                  Discover Our Services
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto px-8 py-4 text-base bg-white group">
-                  <Play className="mr-2 h-4 w-4 text-brand-500 transition-transform duration-300 group-hover:scale-110" />
-                  Contact Us Now
-                </Button>
-              </Link>
+            {/* Floating Badge */}
+            <div className="absolute -bottom-6 -left-4 sm:-left-8 bg-white p-4 sm:p-5 rounded-2xl shadow-xl flex items-center gap-4 border border-gray-100 z-20 hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center shrink-0">
+                <TrendingUp className="h-6 w-6 text-brand-600" />
+              </div>
+              <div>
+                <div className="font-bold text-gray-900 leading-tight">ROI Driven</div>
+                <div className="text-sm text-gray-500 font-medium">Market Focused</div>
+              </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

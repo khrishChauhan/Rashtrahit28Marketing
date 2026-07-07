@@ -70,51 +70,56 @@ export function PrintMediaPage() {
   return (
     <div className="pt-16 md:pt-24 min-h-[70vh]">
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-white py-24 md:py-32">
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-0 right-[20%] h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-brand-50/40 blur-[120px]" />
-          <div className="absolute bottom-0 left-[10%] h-[500px] w-[500px] translate-y-1/3 rounded-full bg-accent-50/30 blur-[120px]" />
-        </div>
-        
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex-1 text-left"
+      <section className="relative w-full overflow-hidden bg-white py-24 md:py-32">
+        {/* Subtle Background Elements */}
+        <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-orange-100/50 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Content */}
+          <div className="lg:col-span-6 xl:col-span-7 space-y-8 z-10 mt-8 lg:mt-0">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-gray-900 leading-[1.1] font-heading uppercase"
             >
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-[4.5rem] font-heading mb-8 leading-tight">
-                Print Media Solutions
-              </h1>
-              
-              <div className="h-1 w-24 bg-brand-500 rounded-full mb-8" />
-              
-              <h2 className="text-xl md:text-2xl text-gray-800 font-semibold mb-6">
-                Professional Printing & Branding Solutions for Businesses
-              </h2>
-              
-              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl">
-                At Rashtrahit28Marketing, we provide high-quality print media solutions that help businesses strengthen their offline presence. From business essentials to large-format advertising, our print services are designed with premium quality, creative layouts, and professional finishing to leave a lasting impression.
-              </p>
-            </motion.div>
+              Print Media Solutions
+            </motion.h1>
             
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="flex-1 w-full"
+            <div className="h-1 w-24 bg-brand-500 rounded-full" />
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-lg md:text-xl text-gray-600 leading-relaxed whitespace-pre-line"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-brand-900/10 border border-gray-100 aspect-[4/3]">
-                <img 
-                  src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1200&h=900" 
-                  alt="Premium Printing & Branding Solutions" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent" />
-              </div>
-            </motion.div>
+              At Rashtrahit28Marketing, we provide high-quality print media solutions that help businesses strengthen their offline presence. From business essentials to large-format advertising, our print services are designed with premium quality, creative layouts, and professional finishing to leave a lasting impression.
+            </motion.p>
           </div>
+
+          {/* Right Content: Image */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-6 xl:col-span-5 relative mt-16 lg:mt-0"
+          >
+            <div className="relative group mx-4 sm:mx-0">
+              {/* Framing Elements */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-orange-200/40 to-blue-200/40 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative bg-white p-3 rounded-[2.5rem] shadow-2xl border border-gray-100 overflow-hidden">
+                <img 
+                  src="/images/services/print-media.png" 
+                  alt="Premium Printing Solutions" 
+                  className="w-full h-auto object-cover rounded-[2rem]"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

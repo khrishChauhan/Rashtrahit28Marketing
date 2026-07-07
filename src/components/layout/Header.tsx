@@ -167,7 +167,7 @@ function MobileMenu({ open, onClose }: { open: boolean, onClose: () => void }) {
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
             <div className="flex items-center">
-              <img src="/images/logo/rlogo.png" alt="Rashtrahit28Marketing" className="h-9 sm:h-10 w-auto object-contain" loading="lazy" />
+              <img src="/images/logo/slogo.png" alt="Rashtrahit28Marketing" className="h-9 sm:h-10 w-auto object-contain" loading="lazy" />
             </div>
             <button 
               onClick={onClose}
