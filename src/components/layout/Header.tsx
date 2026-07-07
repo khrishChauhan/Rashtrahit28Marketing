@@ -143,7 +143,7 @@ function MobileMenu({ open, onClose }: { open: boolean, onClose: () => void }) {
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
             <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-700 text-white font-bold font-heading shadow-sm">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white font-bold font-heading shadow-sm">
                 R
               </div>
               <span className="text-xl font-bold tracking-tight text-gray-900 font-heading">
@@ -193,7 +193,7 @@ function MobileMenu({ open, onClose }: { open: boolean, onClose: () => void }) {
 
           {/* Footer */}
           <div className="px-6 py-8 bg-gray-50 border-t border-gray-100">
-            <Button variant="primary" size="lg" className="w-full rounded-xl py-7 text-lg mb-8 shadow-sm">
+            <Button variant="primary" size="lg" className="w-full py-7 text-lg mb-8 shadow-sm">
               Get Started
             </Button>
             <div className="flex justify-center gap-8 text-gray-400">
@@ -248,7 +248,7 @@ export function Header() {
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
             {/* Logo */}
             <a href="#" className="flex items-center gap-3 group">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-700 text-white font-bold font-heading shadow-sm transition-transform duration-300 group-hover:scale-105 group-hover:shadow-md group-active:scale-95">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white font-bold font-heading shadow-sm transition-transform duration-300 group-hover:scale-105 group-hover:shadow-md group-active:scale-95">
                 R
               </div>
               <span className="text-2xl font-bold tracking-tight text-gray-900 font-heading">
@@ -268,7 +268,7 @@ export function Header() {
               <div className="hidden lg:block">
                 <Button 
                   variant="primary" 
-                  className="rounded-full px-7 font-semibold shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                  className="px-7 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
                 >
                   Get Started
                 </Button>

@@ -28,10 +28,10 @@ const TEAM_MEMBERS = [
 
 export function Team() {
   return (
-    <section className="relative overflow-hidden bg-bg-base py-24 md:py-32">
+    <section className="relative overflow-hidden bg-gray-50/50 py-24 md:py-32">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/3 translate-x-1/3 rounded-full bg-brand-50/40 blur-[100px]" />
+        <div className="absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/3 translate-x-1/3 rounded-full bg-brand-50/40 blur-[120px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
@@ -40,14 +40,14 @@ export function Team() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <Badge variant="subtle" className="mb-6">Leadership</Badge>
             <h2 className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-[3.5rem] font-heading">
               Meet Our Team
             </h2>
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+            <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-xl mx-auto">
               The creative minds and strategic thinkers driving our agency's success. 
               Together, we engineer digital growth.
             </p>
@@ -63,43 +63,43 @@ export function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative flex flex-col rounded-[2.5rem] border border-gray-100 bg-white p-4 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-300 hover:shadow-xl hover:shadow-brand-900/5"
+              className="group relative flex flex-col rounded-[2rem] border border-gray-100 bg-white p-4 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-900/5"
             >
               {/* Profile Image */}
-              <div className="relative mb-6 w-full overflow-hidden rounded-[2rem] aspect-[4/5] bg-gray-100">
+              <div className="relative mb-6 w-full overflow-hidden rounded-[1.5rem] aspect-[4/5] bg-gray-100">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
                 
                 {/* Image Overlay Gradient (Subtle) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </div>
 
               {/* Profile Info */}
-              <div className="flex flex-col items-center text-center px-4 pb-4">
+              <div className="flex flex-col items-center text-center px-2 pb-4">
                 <h3 className="mb-1 text-xl font-bold text-gray-900 font-heading transition-colors duration-300 group-hover:text-brand-700">
                   {member.name}
                 </h3>
-                <p className="mb-6 text-sm font-medium text-brand-700">
+                <p className="mb-5 text-sm font-semibold text-brand-600">
                   {member.role}
                 </p>
 
                 {/* Social Icons */}
-                <div className="flex items-center gap-4 text-gray-400">
+                <div className="flex items-center gap-3 text-gray-400">
                   <a 
                     href="#" 
                     aria-label={`${member.name}'s LinkedIn`}
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-50 transition-all duration-300 hover:bg-brand-50 hover:text-brand-700 hover:scale-110"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 transition-all duration-300 hover:bg-brand-50 hover:text-brand-700 hover:scale-110"
                   >
                     <Linkedin className="h-4 w-4" />
                   </a>
                   <a 
                     href="#" 
                     aria-label={`${member.name}'s Twitter`}
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-50 transition-all duration-300 hover:bg-brand-50 hover:text-brand-700 hover:scale-110"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 transition-all duration-300 hover:bg-brand-50 hover:text-brand-700 hover:scale-110"
                   >
                     <Twitter className="h-4 w-4" />
                   </a>

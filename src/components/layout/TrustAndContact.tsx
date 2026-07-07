@@ -39,13 +39,13 @@ export function TrustAndContact() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="mb-12"
             >
               <Badge variant="subtle" className="mb-6">Testimonials</Badge>
-              <h2 className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl font-heading mb-6">
-                Client Success <br /> Stories
+              <h2 className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-[3.5rem] lg:leading-[1.1] font-heading mb-6">
+                Client Success <br className="hidden lg:block" /> Stories
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed max-w-md">
                 Don't just take our word for it. Hear from the visionary leaders who have partnered with us.
@@ -58,9 +58,9 @@ export function TrustAndContact() {
                   key={testimonial.author}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: 0.1 + idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className="group relative rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-brand-300 hover:shadow-xl hover:shadow-brand-900/5"
+                  className="group relative rounded-[2rem] border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-900/5 lg:p-10"
                 >
                   <Quote className="absolute right-8 top-8 h-10 w-10 text-brand-50 transition-colors duration-500 group-hover:text-brand-100" />
                   
@@ -79,10 +79,11 @@ export function TrustAndContact() {
                       src={testimonial.image} 
                       alt={testimonial.author} 
                       className="h-12 w-12 rounded-full object-cover ring-2 ring-gray-50"
+                      loading="lazy"
                     />
                     <div>
                       <h4 className="font-bold text-gray-900 font-heading">{testimonial.author}</h4>
-                      <p className="text-sm font-medium text-gray-500">{testimonial.role}</p>
+                      <p className="text-sm font-semibold text-gray-500">{testimonial.role}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -95,15 +96,15 @@ export function TrustAndContact() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-[2.5rem] border border-gray-100 bg-white p-8 shadow-xl shadow-gray-200/40 sm:p-12 lg:p-14 relative"
+              className="rounded-[2rem] border border-gray-100 bg-white p-8 shadow-xl shadow-gray-200/40 sm:p-12 lg:p-14 relative"
             >
               <div className="mb-10">
                 <h3 className="text-3xl font-bold tracking-tight text-gray-900 font-heading mb-4">
                   Let's Work Together
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 leading-relaxed">
                   Ready to transform your brand? Fill out the form below and our team will get back to you within 24 hours.
                 </p>
               </div>
@@ -111,31 +112,31 @@ export function TrustAndContact() {
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName" className="text-sm font-semibold text-gray-700">First Name</Label>
-                    <Input id="firstName" placeholder="Jane" className="h-14 rounded-xl bg-gray-50/50 focus:bg-white" />
+                    <Label htmlFor="firstName">First Name</Label>
+                    <Input id="firstName" placeholder="Jane" className="bg-gray-50/50 focus:bg-white" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName" className="text-sm font-semibold text-gray-700">Last Name</Label>
-                    <Input id="lastName" placeholder="Doe" className="h-14 rounded-xl bg-gray-50/50 focus:bg-white" />
+                    <Label htmlFor="lastName">Last Name</Label>
+                    <Input id="lastName" placeholder="Doe" className="bg-gray-50/50 focus:bg-white" />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-sm font-semibold text-gray-700">Work Email</Label>
-                  <Input id="email" type="email" placeholder="jane@company.com" className="h-14 rounded-xl bg-gray-50/50 focus:bg-white" />
+                  <Label htmlFor="email">Work Email</Label>
+                  <Input id="email" type="email" placeholder="jane@company.com" className="bg-gray-50/50 focus:bg-white" />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-sm font-semibold text-gray-700">Project Details</Label>
-                  <Textarea id="message" placeholder="Tell us about your goals..." className="min-h-[160px] rounded-xl bg-gray-50/50 resize-none py-4 focus:bg-white" />
+                  <Label htmlFor="message">Project Details</Label>
+                  <Textarea id="message" placeholder="Tell us about your goals..." className="bg-gray-50/50 focus:bg-white" />
                 </div>
                 
-                <Button variant="primary" size="lg" className="w-full h-14 rounded-xl text-base group mt-4">
+                <Button variant="primary" size="lg" className="w-full group mt-4">
                   Send Message
                   <Send className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </Button>
                 
-                <p className="text-center text-xs text-gray-500 mt-6">
+                <p className="text-center text-xs font-medium text-gray-500 mt-6">
                   By submitting this form, you agree to our privacy policy and terms of service.
                 </p>
               </form>

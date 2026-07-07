@@ -58,7 +58,7 @@ export function Services() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <Badge variant="subtle" className="mb-6">Welcome</Badge>
@@ -77,9 +77,9 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group flex h-full flex-col rounded-[2rem] border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-300 hover:shadow-xl hover:shadow-brand-900/5 lg:p-10"
+              className="group flex h-full flex-col rounded-[2rem] border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-900/5 lg:p-10"
             >
-              <div className="mb-8 inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-700 transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white group-hover:shadow-md group-hover:shadow-brand-600/20">
+              <div className="mb-8 inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white group-hover:shadow-md group-hover:shadow-brand-600/20">
                 {service.icon}
               </div>
               
@@ -94,7 +94,7 @@ export function Services() {
               <div className="mt-auto">
                 <a 
                   href="#" 
-                  className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-gray-50 px-6 text-sm font-semibold text-gray-900 transition-all duration-300 group-hover:bg-brand-50 group-hover:text-brand-700 sm:w-auto"
+                  className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-gray-50 px-6 text-sm font-bold text-gray-900 transition-all duration-300 group-hover:bg-brand-50 group-hover:text-brand-700 sm:w-auto"
                 >
                   Read More
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />

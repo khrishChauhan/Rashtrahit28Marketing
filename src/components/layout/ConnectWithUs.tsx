@@ -50,14 +50,14 @@ export function ConnectWithUs() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <Badge variant="subtle" className="mb-6">Stay Connected</Badge>
             <h2 className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-[3.5rem] font-heading">
               Connect With Us
             </h2>
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+            <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-xl mx-auto">
               Join our growing community. Follow us for the latest industry insights, agency news, and digital marketing strategies.
             </p>
           </motion.div>
@@ -72,10 +72,10 @@ export function ConnectWithUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className={`group relative flex flex-col rounded-[2.5rem] border border-gray-100 bg-white p-6 sm:p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ${platform.color}`}
+              className={`group relative flex flex-col rounded-[2rem] border border-gray-100 bg-white p-6 sm:p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ${platform.color}`}
             >
               {/* Header */}
-              <div className="mb-6 flex items-center justify-between">
+              <div className="mb-8 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${platform.iconBg} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
                     {platform.icon}
@@ -95,19 +95,19 @@ export function ConnectWithUs() {
               </div>
 
               {/* Mock Embed Content Area */}
-              <div className="relative mb-8 flex-1 w-full overflow-hidden rounded-3xl bg-gray-50/80 aspect-video flex flex-col items-center justify-center border border-gray-100/50 p-6 text-center">
+              <div className="relative mb-8 flex-1 w-full overflow-hidden rounded-[1.5rem] bg-gray-50/80 aspect-video flex flex-col items-center justify-center border border-gray-100/50 p-6 text-center">
                 <div className="mb-3 rounded-full bg-white p-3 shadow-sm text-gray-300">
                   {React.cloneElement(platform.icon, { className: 'h-6 w-6' })}
                 </div>
-                <p className="text-sm font-medium text-gray-500">Embedded {platform.name} Feed</p>
-                <p className="mt-1 text-xs text-gray-400">Widget loads here</p>
+                <p className="text-sm font-semibold text-gray-500">Embedded {platform.name} Feed</p>
+                <p className="mt-1 text-xs font-medium text-gray-400">Widget loads here</p>
                 
                 {/* Subtle Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-100/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </div>
 
               {/* Action */}
-              <Button variant="outline" className="w-full h-14 rounded-xl group-hover:border-gray-300 group-hover:bg-gray-50 transition-colors text-base font-semibold">
+              <Button variant="outline" className="w-full group-hover:border-gray-300 group-hover:bg-gray-50 transition-colors">
                 Follow on {platform.name}
               </Button>
             </motion.div>
