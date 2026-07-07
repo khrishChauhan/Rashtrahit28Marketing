@@ -35,11 +35,11 @@ export function Footer() {
         <div className="absolute bottom-0 left-0 h-[400px] w-[400px] translate-y-1/3 -translate-x-1/3 rounded-full bg-accent-900/10 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-12">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8 mb-16">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 mb-12 sm:mb-16">
           
           {/* Column 1: Logo & Description (4 columns wide on lg) */}
-          <div className="lg:col-span-4 flex flex-col items-start">
+          <div className="sm:col-span-2 lg:col-span-4 flex flex-col items-start">
             <Link to="/" className="flex items-center group mb-6">
               <img src="/images/logo/rlogo.png" alt="Rashtrahit28Marketing" className="h-10 sm:h-12 w-auto object-contain" loading="lazy" />
             </Link>
@@ -142,7 +142,7 @@ export function Footer() {
         </div>
         
         {/* Bottom Bar */}
-        <div className="flex flex-col flex-col-reverse items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row text-sm text-gray-500">
+        <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 sm:gap-6 border-t border-white/10 pt-8 text-sm text-gray-500">
           <p>Copyright © 2026 Rashtrahit28Marketing. All Rights Reserved.</p>
           <div className="flex items-center gap-8">
             <span className="hover:text-brand-500 transition-colors duration-300">

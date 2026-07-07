@@ -81,15 +81,15 @@ export function AboutFAQ() {
   const [openId, setOpenId] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 md:py-32">
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20 md:py-28">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute -left-[10%] top-[20%] h-[500px] w-[500px] rounded-full bg-accent-50/30 blur-[120px]" />
         <div className="absolute bottom-[10%] -right-[10%] h-[600px] w-[600px] rounded-full bg-brand-50/40 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row gap-10 sm:gap-14 lg:gap-20">
           
           {/* Left Side: Content (50%) */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center">
@@ -102,13 +102,13 @@ export function AboutFAQ() {
             >
               <Badge variant="subtle" className="mb-6">ABOUT COMPANY</Badge>
               
-              <h2 className="mb-8 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-[3.5rem] lg:leading-[1.1] font-heading">
+              <h2 className="mb-6 sm:mb-8 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 font-heading leading-tight">
                 Where Strategy Meets Digital Influence
               </h2>
               
               <div className="mb-8 h-1 w-16 bg-brand-500 rounded-full" />
               
-              <p className="mb-10 text-lg leading-relaxed text-gray-600">
+              <p className="mb-8 sm:mb-10 text-base sm:text-lg leading-relaxed text-gray-600">
                 We partner with brands and leaders to accelerate growth using strategic digital marketing. By combining performance campaigns, content, and targeted outreach, we help build visibility, engagement, and results that translate into real business impact.
               </p>
               

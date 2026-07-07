@@ -6,14 +6,14 @@ import { Input, Textarea, Label } from '../ui/Form';
 
 export function TrustAndContact() {
   return (
-    <section className="relative overflow-hidden bg-gray-50/50 py-24 md:py-32">
+    <section className="relative overflow-hidden bg-gray-50/50 py-16 sm:py-20 md:py-28">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute -left-[10%] top-[10%] h-[600px] w-[600px] rounded-full bg-brand-100/30 blur-[120px]" />
         <div className="absolute -right-[10%] bottom-[10%] h-[500px] w-[500px] rounded-full bg-accent-50/40 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-12">
+      <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export function TrustAndContact() {
           className="rounded-[20px] border border-gray-100 bg-white p-6 sm:p-8 lg:p-12 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative"
         >
           <div className="mb-10 text-center">
-            <h3 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 font-heading mb-4">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 font-heading mb-4">
               Let's Work Together
             </h3>
             <p className="text-gray-600 leading-relaxed max-w-xl mx-auto">

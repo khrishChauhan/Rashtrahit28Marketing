@@ -177,30 +177,30 @@ export function PrintMediaPage() {
       {/* Back Button */}
       <button
         onClick={handleBack}
-        className={`absolute top-6 left-6 md:top-10 md:left-10 z-[100] flex items-center gap-3 px-5 py-3 rounded-full backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 ${buttonClasses}`}
+        className={`absolute top-4 left-4 sm:top-6 sm:left-6 md:top-10 md:left-10 z-[100] flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 rounded-full backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 min-h-[40px] sm:min-h-[44px] ${buttonClasses}`}
         aria-label="Go Back"
       >
-        <div className={`flex items-center justify-center rounded-full h-8 w-8 ${buttonIconClasses}`}>
-          <ArrowLeft className="h-4 w-4" />
+        <div className={`flex items-center justify-center rounded-full h-6 w-6 sm:h-8 sm:w-8 ${buttonIconClasses}`}>
+          <ArrowLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
         </div>
-        <span className="font-semibold text-sm tracking-wide">Back</span>
+        <span className="font-semibold text-xs sm:text-sm tracking-wide">Back</span>
       </button>
 
       {/* Contact Button */}
       <Link
         to="/contact"
-        className={`absolute top-6 right-16 md:top-10 md:right-20 z-[100] flex items-center gap-2 px-5 py-3 rounded-full backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 ${buttonClasses}`}
+        className={`absolute top-4 right-12 sm:top-6 sm:right-16 md:top-10 md:right-20 z-[100] flex items-center gap-2 px-3 sm:px-5 py-2 sm:py-3 rounded-full backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 min-h-[40px] sm:min-h-[44px] ${buttonClasses}`}
         aria-label="Contact Us"
       >
-        <span className="font-semibold text-sm tracking-wide">Contact</span>
+        <span className="font-semibold text-xs sm:text-sm tracking-wide">Contact</span>
       </Link>
 
       {/* Logo */}
-      <Link to="/" className="absolute top-6 left-1/2 -translate-x-1/2 z-[100]">
+      <Link to="/" className="absolute top-4 left-1/2 -translate-x-1/2 z-[100]">
         <img
           src="/images/logo/rlogo.png"
           alt="Rashtrahit28Marketing"
-          className="h-10 md:h-12 w-auto object-contain"
+          className="h-8 sm:h-10 md:h-12 w-auto object-contain max-w-[140px] sm:max-w-[180px]"
         />
       </Link>
 
@@ -248,26 +248,26 @@ export function PrintMediaPage() {
 
 function PrintHeroSection() {
   return (
-    <div className="w-full h-full bg-white flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[60px] overflow-y-auto hide-scrollbar">
-      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[500px] h-[500px] bg-orange-100/50 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none" />
+    <div className="w-full h-full bg-white flex items-center justify-center px-4 sm:px-8 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-4 lg:pb-[60px] overflow-y-auto hide-scrollbar">
+      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-orange-100/50 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-7xl h-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
+      <div className="relative z-10 w-full max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16 py-4">
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-            className="text-3xl md:text-4xl lg:text-[3.2rem] font-bold tracking-tight text-gray-900 leading-[1.1] font-heading uppercase mb-4 lg:mb-6"
+            className="text-[1.6rem] sm:text-3xl md:text-4xl lg:text-[3.2rem] font-bold tracking-tight text-gray-900 leading-[1.15] font-heading uppercase mb-4"
           >
             Print Media Solutions
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, scaleX: 0 }} animate={{ opacity: 1, scaleX: 1 }} transition={{ delay: 0.4 }}
-            className="h-1 w-20 bg-brand-500 rounded-full mb-6"
+            className="h-1 w-16 sm:w-20 bg-brand-500 rounded-full mb-4 sm:mb-6"
             style={{ transformOrigin: 'left' }}
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-            className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed"
+            className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed"
           >
             At Rashtrahit28Marketing, we provide high-quality print media solutions that help businesses strengthen their offline presence. From business essentials to large-format advertising, our print services are designed with premium quality, creative layouts, and professional finishing to leave a lasting impression.
           </motion.p>
@@ -275,16 +275,16 @@ function PrintHeroSection() {
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6, duration: 1 }}
-          className="w-full lg:w-1/2 flex items-center justify-center h-[35%] md:h-[40%] lg:h-full shrink-0"
+          className="w-full lg:w-1/2 flex items-center justify-center shrink-0"
         >
           <motion.div
             animate={{ y: [-10, 10, -10] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-full h-full max-h-[280px] lg:max-h-[580px] rounded-[1.5rem] lg:rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100"
+            className="relative w-full max-h-[200px] sm:max-h-[250px] lg:max-h-[520px] rounded-[1.5rem] lg:rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100"
           >
             <img
               src="/images/services/print-media.png"
               alt="Premium Printing Solutions"
-              className="w-full h-full object-cover rounded-[1.5rem] lg:rounded-[3rem]"
+              className="w-full h-full object-cover"
             />
           </motion.div>
         </motion.div>
@@ -295,28 +295,28 @@ function PrintHeroSection() {
 
 function PrintServicesSection() {
   return (
-    <div className="w-full h-full bg-gray-50 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[60px] overflow-y-auto hide-scrollbar">
-      <div className="w-full max-w-7xl h-full flex flex-col justify-center gap-6 lg:gap-8">
+    <div className="w-full h-full bg-gray-50 flex items-center justify-center px-4 sm:px-8 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-4 lg:pb-[60px] overflow-y-auto hide-scrollbar">
+      <div className="w-full max-w-7xl flex flex-col justify-center gap-5 lg:gap-8 py-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
           className="text-center"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-heading text-gray-900 mb-3">Our Print Services</h2>
-          <div className="mx-auto h-1 w-16 bg-brand-500 rounded-full" />
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-heading text-gray-900 mb-2 sm:mb-3">Our Print Services</h2>
+          <div className="mx-auto h-1 w-12 sm:w-16 bg-brand-500 rounded-full" />
         </motion.div>
 
-        <div className="grid gap-3 md:gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {PRINT_SERVICES.map((service, idx) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + idx * 0.06 }}
-              className="group relative rounded-2xl bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-900/5 border border-gray-100"
+              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + Math.min(idx * 0.06, 0.36) }}
+              className="group relative rounded-xl sm:rounded-2xl bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-900/5 border border-gray-100"
             >
-              <div className="mb-4 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-brand-50/50 border border-brand-100 text-brand-700 transition-all duration-500 group-hover:scale-105 group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:text-white group-hover:rotate-3">
+              <div className="mb-3 inline-flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-[12px] bg-brand-50/50 border border-brand-100 text-brand-700 transition-all duration-500 group-hover:scale-105 group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:text-white group-hover:rotate-3">
                 {service.icon}
               </div>
-              <h3 className="mb-2 text-base font-bold text-gray-900 font-heading">{service.title}</h3>
-              <p className="text-gray-600 leading-relaxed text-xs md:text-sm">{service.description}</p>
+              <h3 className="mb-1.5 sm:mb-2 text-sm sm:text-base font-bold text-gray-900 font-heading">{service.title}</h3>
+              <p className="text-gray-600 leading-relaxed text-xs sm:text-sm">{service.description}</p>
             </motion.div>
           ))}
         </div>

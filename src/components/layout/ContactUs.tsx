@@ -7,15 +7,15 @@ import { Input, Textarea, Label } from '../ui/Form';
 
 export function ContactUs() {
   return (
-    <section className="relative overflow-hidden bg-bg-base py-24 md:py-32">
+    <section className="relative overflow-hidden bg-bg-base py-16 sm:py-20 md:py-28">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 right-[20%] h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-brand-50/40 blur-[120px]" />
         <div className="absolute bottom-0 left-[10%] h-[500px] w-[500px] translate-y-1/3 rounded-full bg-accent-50/30 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 mb-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 mb-16 sm:mb-20 md:mb-24">
           
           {/* Left Side: Contact Form (55%) */}
           <div className="w-full lg:w-[55%] flex flex-col">
@@ -26,7 +26,7 @@ export function ContactUs() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="rounded-[20px] border border-gray-100 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative"
             >
-              <h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl font-heading">
+              <h2 className="mb-6 sm:mb-8 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 font-heading">
                 Send us a Message
               </h2>
               
@@ -68,7 +68,7 @@ export function ContactUs() {
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="rounded-[20px] border border-gray-100 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] h-full flex flex-col"
             >
-              <h2 className="mb-10 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl font-heading">
+              <h2 className="mb-8 sm:mb-10 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 font-heading">
                 Get in Touch
               </h2>
               
@@ -142,7 +142,7 @@ export function ContactUs() {
         >
           <Badge variant="subtle" className="mb-6">Our Office Location</Badge>
           
-          <div className="w-full h-[400px] md:h-[500px] rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl shadow-brand-900/5 bg-gray-50 relative">
+          <div className="w-full h-[300px] sm:h-[380px] md:h-[480px] rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl shadow-brand-900/5 bg-gray-50 relative">
             <iframe 
               src="https://maps.google.com/maps?q=592%2FD-14%2C%20Sec-5%20Sheetla%20Colony%20Gurugram%2C%20Pincode-12201&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               width="100%" 

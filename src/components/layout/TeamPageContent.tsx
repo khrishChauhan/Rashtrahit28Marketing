@@ -61,7 +61,7 @@ function TeamMemberCard({ member }: { member: any, key?: number | string }) {
 
 export function TeamPageContent() {
   return (
-    <div className="relative min-h-screen bg-bg-base overflow-hidden pb-24 md:pb-32">
+    <div className="relative min-h-screen bg-bg-base overflow-hidden pb-16 sm:pb-20 md:pb-28">
       {/* Decorative Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-50/40 blur-[120px]" />
@@ -69,10 +69,10 @@ export function TeamPageContent() {
         <div className="absolute top-1/2 left-0 h-[500px] w-[500px] -translate-x-1/3 rounded-full bg-brand-50/20 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
         
         {/* SECTION 1: HERO */}
-        <section className="py-20 md:py-32 flex flex-col items-center text-center">
+        <section className="py-16 sm:py-20 md:py-28 flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -80,7 +80,7 @@ export function TeamPageContent() {
             className="max-w-[700px] flex flex-col items-center"
           >
             <Badge variant="subtle" className="mb-8">OUR TEAM</Badge>
-            <h1 className="mb-8 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-6xl font-heading leading-tight">
+            <h1 className="mb-6 sm:mb-8 text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 font-heading leading-tight">
               Meet the People Behind Our Success
             </h1>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
@@ -112,9 +112,9 @@ export function TeamPageContent() {
         </section>
 
         {/* SECTION 3: SOCIAL MEDIA MARKETING TEAM */}
-        <section className="mb-24 md:mb-32">
-          <div className="mb-16 flex flex-col items-center text-center">
-            <h2 className="mb-6 font-heading text-3xl font-bold text-gray-900 md:text-4xl">
+        <section className="mb-16 sm:mb-20 md:mb-28">
+          <div className="mb-10 sm:mb-14 flex flex-col items-center text-center">
+            <h2 className="mb-4 sm:mb-6 font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
               Social Media Marketing Team
             </h2>
             <p className="max-w-2xl text-lg text-gray-600 leading-relaxed">
@@ -129,9 +129,9 @@ export function TeamPageContent() {
         </section>
 
         {/* SECTION 4: DEVELOPMENT MARKETING TEAM */}
-        <section className="mb-24 md:mb-32">
-          <div className="mb-16 flex flex-col items-center text-center">
-            <h2 className="mb-6 font-heading text-3xl font-bold text-gray-900 md:text-4xl">
+        <section className="mb-16 sm:mb-20 md:mb-28">
+          <div className="mb-10 sm:mb-14 flex flex-col items-center text-center">
+            <h2 className="mb-4 sm:mb-6 font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
               Development Marketing Team
             </h2>
             <p className="max-w-2xl text-lg text-gray-600 leading-relaxed">
@@ -147,8 +147,8 @@ export function TeamPageContent() {
 
         {/* SECTION 5: PRINT MEDIA TEAM */}
         <section>
-          <div className="mb-16 flex flex-col items-center text-center">
-            <h2 className="mb-6 font-heading text-3xl font-bold text-gray-900 md:text-4xl">
+          <div className="mb-10 sm:mb-14 flex flex-col items-center text-center">
+            <h2 className="mb-4 sm:mb-6 font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
               Print Media
             </h2>
             <p className="max-w-2xl text-lg text-gray-600 leading-relaxed">
