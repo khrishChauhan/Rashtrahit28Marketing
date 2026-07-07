@@ -83,7 +83,7 @@ export function ContactUs() {
                     <span className="text-gray-600 leading-relaxed">
                       592/D-14, Sec-5 Sheetla Colony,<br />
                       Gurugram,<br />
-                      Pincode-12201
+                      Pincode-122001
                     </span>
                   </div>
                 </li>
@@ -145,7 +145,7 @@ export function ContactUs() {
           
           <div className="w-full h-[300px] sm:h-[380px] md:h-[480px] rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl shadow-brand-900/5 bg-gray-50 relative">
             <iframe 
-              src="https://maps.google.com/maps?q=592%2FD-14%2C%20Sec-5%20Sheetla%20Colony%20Gurugram%2C%20Pincode-12201&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              src="https://maps.google.com/maps?q=592%2FD-14%2C%20Sec-5%20Sheetla%20Colony%20Gurugram%2C%20Pincode-122001&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
