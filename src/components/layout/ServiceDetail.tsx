@@ -280,7 +280,7 @@ export function ServiceDetail() {
     };
   }, [handleWheel, handleTouchStart, handleTouchMove]);
 
-  const isDarkBg = activeSection === 1;
+  const isDarkBg = false; // Both HeroSection and FeaturesSection use light backgrounds
   const buttonClasses = isDarkBg
     ? "bg-white/10 border-white/20 text-white hover:bg-white/20"
     : "bg-gray-900/5 border-gray-900/10 text-gray-900 hover:bg-gray-900/10";
