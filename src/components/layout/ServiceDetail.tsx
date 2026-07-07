@@ -7,146 +7,146 @@ import {
   Video, Film, Play, MonitorPlay,
   BookOpen, Share2, PenTool, Briefcase, StickyNote, CreditCard,
   Layout, Smartphone, Image as ImageIcon, MousePointer2,
-  Star, Megaphone, Users, Target, Activity
+  Star, Megaphone, Users, Target, Activity, User
 } from 'lucide-react';
 
 const SERVICES_DATA: Record<string, any> = {
   "/services/social-media-management": {
     title: "BEST SOCIAL MEDIA MARKETING AGENCY IN GURGAON",
-    intro: "Boost your online presence with our social media marketing agency in Gurgaon...\n(Use the complete paragraph exactly.)",
+    intro: "Boost your online presence with our social media marketing agency in Gurgaon.\n\nWe focus on delivering real growth by building genuine connections with your audience and crafting unique strategies tailored to your business needs.\n\nAt GST Industrial & Marketing Services, we offer top quality social media management designed to strengthen your online identity.\n\nAs a leading agency in the region, we use our expertise in content creation, strategic planning, and delivering outstanding results to help you succeed.",
     features: [
       {
         title: "Profile Setup & Strategic Optimization",
-        description: "We create and refine professional profiles...",
-        icon: <Settings className="h-6 w-6" />
+        description: "We create and refine professional profiles from the start, ensuring your brand is presented through engaging bios, high-resolution images, and smooth links to your business information.",
+        icon: <User className="h-6 w-6" />
       },
       {
         title: "Content Management & Scheduling",
-        description: "We provide consistently engaging content...",
+        description: "We provide consistently engaging content with a curated calendar of high-quality posts, reels, and stories, keeping your brand at the forefront of your audience's mind.",
         icon: <Calendar className="h-6 w-6" />
       },
       {
         title: "Targeted Hashtag & Reach Strategy",
-        description: "We use data and current trends...",
+        description: "We use data and current trends to optimize your hashtag usage, increasing your visibility and helping you grow your follower base.",
         icon: <Hash className="h-6 w-6" />
       },
       {
         title: "Audience Engagement & Performance Tracking",
-        description: "Our teams stay actively engaged...",
-        icon: <BarChart className="h-6 w-6" />
+        description: "Our teams stay actively engaged with your community, responding to feedback in real-time while also analyzing data to continuously improve your strategy.",
+        icon: <Users className="h-6 w-6" />
       }
     ]
   },
   "/services/search-engine-optimization": {
     title: "BEST SEO SERVICES IN GURGAON",
-    intro: "Boost your online growth with GST Industrial & Marketing Services...\n(Complete paragraph)",
+    intro: "Boost your online growth with GST Industrial & Marketing Services, offering professional SEO services in Gurgaon designed to improve your search engine rankings and increase organic traffic. Our expert team creates customized SEO strategies that strengthen your online presence, attract potential customers, and help your business stand out in the competitive digital market. From keyword optimization to website performance and digital visibility, we focus on delivering result\n\ndriven SEO solutions that support long-term business growth. Build a stronger brand identity in Gurgaon with smart, effective, and trusted SEO services.",
     features: [
       {
         title: "On-page SEO",
-        description: "",
+        description: "On page SEO which is the practice of optimizing web content, structure and keywords to improve search engine rankings, user experience and organic traffic.",
         icon: <FileText className="h-6 w-6" />
       },
       {
         title: "Off-page SEO",
-        description: "",
+        description: "Off page SEO which includes building up a site's authority via backlinks, social signals, and online promotion in order to better its rankings and credibility.",
         icon: <Globe className="h-6 w-6" />
       },
       {
         title: "Technical SEO",
-        description: "",
+        description: "Technical SEO which includes improving website speed, mobile-friendness, indexing and site structure for better search engine performance.",
         icon: <Wrench className="h-6 w-6" />
       },
       {
-        title: "Keyword Research Planning",
-        description: "",
+        title: "Keyword research planning-",
+        description: "Keyword analysis for success Keyword research planning which is to identify high value search terms to target the right audience, improve rankings and drive qualified traffic.",
         icon: <Search className="h-6 w-6" />
       }
     ]
   },
   "/services/video-editing": {
     title: "BEST VIDEO EDITING AGENCY IN GURGAON",
-    intro: "Increase brand awareness with Gurgaon’s best video marketing company! Professional video editing services to produce captivating, excellent material that produces outcomes.",
+    intro: "Elevate your brand with GST Industrial & Marketing Services, offering premium Video marketing and Editing services in Gurgaon. We create eye catching reels, promotional videos, and digital content that boost engagement and strengthen your online presence. With creative storytelling and professional editing, every video is designed to leave a lasting impact. In today's digital world, powerful video content is the key to attracting customers and building strong brand value. Stand out in Gurgaon's competitive market with content that truly connects and performs.",
     features: [
       {
-        title: "Video Production",
-        description: "",
+        title: "Video cutting, trimming & transitions",
+        description: "Wrestling with the rough edges, putting clips together seamlessly and including smooth transitions for that professional and engaging video feel.",
         icon: <Video className="h-6 w-6" />
       },
       {
-        title: "Post-Processing",
-        description: "",
+        title: "Color correction & visual enhancement",
+        description: "Enhancing brightness, contrast, colors, which in turn improves the overall visual quality to give your videos that professional look.",
         icon: <Film className="h-6 w-6" />
       },
       {
-        title: "Motion Graphics",
-        description: "",
+        title: "Text, subtitles & motion graphics",
+        description: "Adding of titles, captions, subtitles, and animated graphics to improve message clarity, engagement and viewer understanding.",
         icon: <Play className="h-6 w-6" />
       },
       {
-        title: "YouTube Optimization",
-        description: "",
+        title: "Background audio, sound effects & branding",
+        description: "Adding appropriate music, sound effects, logos and brand elements which in turn improves video impact and brand identity.",
         icon: <MonitorPlay className="h-6 w-6" />
       }
     ]
   },
   "/services/graphic-designing": {
     title: "BEST GRAPHIC DESIGNING AGENCY IN GURGAON",
-    intro: "Enhance your brand identity...\n(Complete paragraph)",
+    intro: "Enhance your brand identity with GST Industrial & Marketing Services, providing professional Graphic Designing Services in Gurgaon. We create eye catching banners, brochures, business cards, packaging, and promotional materials with modern and creative designs. Our high quality print and branding solutions help businesses build strong visibility and customer trust. Stand out in Gurgaon's competitive market with impactful and professionally crafted designs.",
     features: [
       {
         title: "Brochure Design",
-        description: "",
+        description: "Custom designed brochures which put your products at the fore and create a professional memorable brand experience.",
         icon: <BookOpen className="h-6 w-6" />
       },
       {
         title: "Social Media Posts",
-        description: "",
+        description: "Creative social media campaigns that get noticed, engage audiences, and create a strong brand presence daily.",
         icon: <Share2 className="h-6 w-6" />
       },
       {
         title: "Logo Design",
-        description: "",
+        description: "Make your brand stand out with our custom logo design services which we tailor to your vision and business goals.",
         icon: <PenTool className="h-6 w-6" />
       },
       {
         title: "Business Card",
-        description: "",
+        description: "Present every introduction with a modern and creative business card design for your growing business.",
         icon: <Briefcase className="h-6 w-6" />
       },
       {
         title: "Flyer Design",
-        description: "",
+        description: "Present your promotions in a way that is unique and very visual, we do flyers for maximum impact.",
         icon: <StickyNote className="h-6 w-6" />
       },
       {
         title: "Card Design",
-        description: "",
+        description: "Unique design of cards which we have put together to present style, function and brand identity in a very personal way.",
         icon: <CreditCard className="h-6 w-6" />
       }
     ]
   },
   "/services/web-designing": {
     title: "BEST WEB DESIGNING AGENCY IN GURGAON",
-    intro: "Build a powerful online presence...\n(Complete paragraph)",
+    intro: "Build a powerful online presence with GST Industrial & Marketing Services, offering professional web design services in Gurgaon. We create modern, responsive, and SEO friendly websites that deliver a smooth user experience across all devices. Our expert team focuses on creative designs, fast loading pages, smart layouts, and brand-focused visuals to improve engagement and performance. From corporate websites to landing pages and custom business portals, we develop websites that support digital marketing and generate quality leads. Grow your business with a professional website designed for performance, visibility, and long-term success.",
     features: [
       {
-        title: "Web Design & Interface Design",
-        description: "",
+        title: "Web design and interface design",
+        description: "Designing clean and attractive page layouts, color schemes, fonts and buttons for a professional and user friendly interface.",
         icon: <Layout className="h-6 w-6" />
       },
       {
-        title: "Mobile Responsive Design",
-        description: "",
+        title: "Mobile responsive design",
+        description: "Making sure the site runs smoothly on mobiles, tablets, and desktops with no layout or performance issues.",
         icon: <Smartphone className="h-6 w-6" />
       },
       {
-        title: "Banner Graphics & Visuals",
-        description: "",
+        title: "Banner graphics and visuals",
+        description: "Designing banners, creating sliders, producing icons and developing graphics to enhance visual appeal and brand consistency.",
         icon: <ImageIcon className="h-6 w-6" />
       },
       {
-        title: "User Experience (UX) Improvement",
-        description: "",
+        title: "User experience (UX) improvement",
+        description: "Improving the navigation, page flow and usability for easy information retrieval and action.",
         icon: <MousePointer2 className="h-6 w-6" />
       }
     ]
