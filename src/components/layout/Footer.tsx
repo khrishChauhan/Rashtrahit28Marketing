@@ -44,7 +44,7 @@ export function Footer() {
               <img src="/images/logo/rlogo.png" alt="Rashtrahit28Marketing" className="h-10 sm:h-12 w-auto object-contain" loading="lazy" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">
-              Rashtrahit28Marketing offers the best digital marketing services in Gurgaon, specializing in result-driven ad campaigns and strategic social media solutions.
+              Rashtrahit28Marketing offers the best digital marketing services in India, specializing in result-driven ad campaigns and strategic social media solutions.
             </p>
             
             {/* Social Icons */}
@@ -112,7 +112,7 @@ export function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Address</span>
-                  <span className="font-medium leading-relaxed">28, Urban Estate, Sector-7,<br />Gurugram, Haryana - 122001</span>
+                  <span className="font-medium leading-relaxed">28, Urban Estate, Sector-7,<br />India, Haryana - 122001</span>
                 </div>
               </li>
               <li>

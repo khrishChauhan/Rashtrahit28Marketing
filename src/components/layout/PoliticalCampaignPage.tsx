@@ -4,14 +4,14 @@ import { Plus, Minus, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const SECTION_1 = {
-  heading: "Best Political Marketing Agency in Gurgaon",
+  heading: "Best Political Marketing Agency in India",
   subheading: "For Political Candidates And Political Parties",
   paragraph: "Run effective and data-driven political campaigns. We provide end-to-end digital solutions to build a strong presence, connect with voters, and execute winning strategies.",
   image: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=1200&h=800"
 };
 
 const SECTION_2 = {
-  heading: "Best Political Marketing and Campaign Management Agency in Gurgaon",
+  heading: "Best Political Marketing and Campaign Management Agency in India",
   bullets: [
     "360° Election Campaign Strategy & Planning",
     "Multi-Channel Digital & Offline Advertising",
@@ -42,7 +42,7 @@ const SECTION_3 = {
 };
 
 const SECTION_4 = {
-  paragraph: "Political campaigns and marketing play a vital role in building public trust, shaping voter perception, and driving meaningful engagement during elections. As a Top Campaign Marketing Agency in Gurgaon, we deliver results.",
+  paragraph: "Political campaigns and marketing play a vital role in building public trust, shaping voter perception, and driving meaningful engagement during elections. As a Top Campaign Marketing Agency in India, we deliver results.",
   image: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&q=80&w=1200&h=800"
 };
 

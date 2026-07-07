@@ -85,7 +85,7 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
 const SEO_CONFIG: Record<string, { title: string, description: string, canonical: string }> = {
   "/": {
     title: "Home | Rashtrahit28Marketing - Digital Marketing Agency",
-    description: "Rashtrahit28Marketing is a leading digital marketing and political campaign agency offering SEO, SMM, and web design in Gurgaon.",
+    description: "Rashtrahit28Marketing is a leading digital marketing and political campaign agency offering SEO, SMM, and web design in India.",
     canonical: "https://rashtrahit28marketing.com/"
   },
   "/about": {
@@ -95,7 +95,7 @@ const SEO_CONFIG: Record<string, { title: string, description: string, canonical
   },
   "/contact": {
     title: "Contact Us | Rashtrahit28Marketing",
-    description: "Get in touch with Rashtrahit28Marketing for your digital marketing and political campaign needs in Gurgaon.",
+    description: "Get in touch with Rashtrahit28Marketing for your digital marketing and political campaign needs in India.",
     canonical: "https://rashtrahit28marketing.com/contact"
   },
   "/political": {
@@ -115,7 +115,7 @@ const SEO_CONFIG: Record<string, { title: string, description: string, canonical
   },
   "/services/search-engine-optimization": {
     title: "SEO Services | Rashtrahit28Marketing",
-    description: "Top SEO services in Gurgaon to help your company achieve increased organic traffic and optimal visibility.",
+    description: "Top SEO services in India to help your company achieve increased organic traffic and optimal visibility.",
     canonical: "https://rashtrahit28marketing.com/services/search-engine-optimization"
   },
   "/services/video-editing": {
