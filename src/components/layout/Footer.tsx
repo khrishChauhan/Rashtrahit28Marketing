@@ -146,7 +146,7 @@ export function Footer() {
           <p>Copyright © 2026 Rashtrahit28Marketing. All Rights Reserved.</p>
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8 text-center sm:text-left">
             <span className="transition-colors duration-300">
-              Developed by <a href="https://clickaarambh.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 font-medium transition-colors">Click aarambh Ventures</a>
+              Designed & Developed by Rashtrahit28Marketing
             </span>
           </div>
         </div>
