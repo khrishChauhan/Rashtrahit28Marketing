@@ -1,18 +1,7 @@
-import React, { useEffect } from 'react';
-import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
-import { 
-  Printer, 
-  FileText, 
-  Image as ImageIcon, 
-  Map, 
-  BookOpen, 
-  Gift, 
-  Copy,
-  CheckCircle2,
-  ArrowRight
-} from 'lucide-react';
-import { Button } from '../ui/Button';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ArrowLeft, ArrowRight, CheckCircle2, Printer, FileText, Image as ImageIcon, Map, BookOpen, Gift, Copy } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
 
 const PRINT_SERVICES = [
   {
@@ -62,152 +51,344 @@ const FEATURES = [
   "Customized branding"
 ];
 
+const TOTAL_SECTIONS = 4;
+
+const slideVariants = {
+  enter: (direction: number) => ({
+    y: direction > 0 ? '20%' : '-20%',
+    opacity: 0,
+    scale: 0.95,
+    zIndex: 0
+  }),
+  center: { y: 0, opacity: 1, scale: 1, zIndex: 1 },
+  exit: (direction: number) => ({
+    y: direction < 0 ? '20%' : '-20%',
+    opacity: 0,
+    scale: 1.05,
+    zIndex: 0
+  })
+};
+
+const transition = { duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] };
+
 export function PrintMediaPage() {
+  const [activeSection, setActiveSection] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const isAnimating = useRef(false);
+  const touchStartY = useRef(0);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
   }, []);
 
+  const changeSection = useCallback((dir: number) => {
+    if (isAnimating.current) return;
+    isAnimating.current = true;
+    setDirection(dir);
+    setActiveSection((prev) => {
+      let next = prev + dir;
+      if (next >= TOTAL_SECTIONS) next = 0;
+      if (next < 0) next = TOTAL_SECTIONS - 1;
+      return next;
+    });
+    setTimeout(() => { isAnimating.current = false; }, 1000);
+  }, []);
+
+  const handleWheel = useCallback((e: WheelEvent) => {
+    const target = e.target as HTMLElement;
+    const isScrollable = target.closest('.overflow-y-auto');
+    if (isScrollable) {
+      const el = isScrollable as HTMLElement;
+      const atTop = el.scrollTop === 0 && e.deltaY < 0;
+      const atBottom = Math.ceil(el.scrollHeight - el.scrollTop) <= el.clientHeight && e.deltaY > 0;
+      if (!atTop && !atBottom) return;
+    }
+    if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+    if (Math.abs(e.deltaY) < 20) return;
+    e.preventDefault();
+    if (isAnimating.current) return;
+    changeSection(e.deltaY > 0 ? 1 : -1);
+  }, [changeSection]);
+
+  const handleTouchStart = useCallback((e: TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+  }, []);
+
+  const handleTouchMove = useCallback((e: TouchEvent) => {
+    const target = e.target as HTMLElement;
+    const isScrollable = target.closest('.overflow-y-auto');
+    const touchEndY = e.touches[0].clientY;
+    const deltaY = touchStartY.current - touchEndY;
+    if (isScrollable) {
+      const el = isScrollable as HTMLElement;
+      const atTop = el.scrollTop === 0 && deltaY < 0;
+      const atBottom = Math.ceil(el.scrollHeight - el.scrollTop) <= el.clientHeight && deltaY > 0;
+      if (!atTop && !atBottom) return;
+    }
+    e.preventDefault();
+    if (isAnimating.current) return;
+    if (Math.abs(deltaY) > 40) {
+      changeSection(deltaY > 0 ? 1 : -1);
+      touchStartY.current = touchEndY;
+    }
+  }, [changeSection]);
+
+  useEffect(() => {
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, [handleWheel, handleTouchStart, handleTouchMove]);
+
+  const isDarkBg = activeSection === 2 || activeSection === 3;
+  const buttonClasses = isDarkBg
+    ? "bg-white/10 border-white/20 text-white hover:bg-white/20"
+    : "bg-gray-900/5 border-gray-900/10 text-gray-900 hover:bg-gray-900/10";
+  const buttonIconClasses = isDarkBg ? "bg-white/20" : "bg-gray-900/10";
+  const dotActive = isDarkBg ? "bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" : "bg-brand-600 shadow-[0_0_10px_rgba(79,70,229,0.4)]";
+  const dotInactive = isDarkBg ? "bg-white/30 group-hover:bg-white/70" : "bg-brand-900/20 group-hover:bg-brand-900/40";
+
+  const handleBack = () => {
+    if (window.history.state && window.history.state.idx > 0) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
+
+  const goToSection = (index: number) => {
+    if (index === activeSection || isAnimating.current) return;
+    const dir = index > activeSection ? 1 : -1;
+    isAnimating.current = true;
+    setDirection(dir);
+    setActiveSection(index);
+    setTimeout(() => { isAnimating.current = false; }, 1200);
+  };
+
   return (
-    <div className="pt-16 md:pt-24 min-h-[70vh]">
-      {/* 1. Hero Section */}
-      <section className="relative w-full overflow-hidden bg-white py-24 md:py-32">
-        {/* Subtle Background Elements */}
-        <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-orange-100/50 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none" />
+    <div className="relative w-full h-[100dvh] overflow-hidden select-none font-sans">
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Content */}
-          <div className="lg:col-span-6 xl:col-span-7 space-y-8 z-10 mt-8 lg:mt-0">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-gray-900 leading-[1.1] font-heading uppercase"
-            >
-              Print Media Solutions
-            </motion.h1>
-            
-            <div className="h-1 w-24 bg-brand-500 rounded-full" />
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-lg md:text-xl text-gray-600 leading-relaxed whitespace-pre-line"
-            >
-              At Rashtrahit28Marketing, we provide high-quality print media solutions that help businesses strengthen their offline presence. From business essentials to large-format advertising, our print services are designed with premium quality, creative layouts, and professional finishing to leave a lasting impression.
-            </motion.p>
-          </div>
+      {/* Back Button */}
+      <button
+        onClick={handleBack}
+        className={`absolute top-6 left-6 md:top-10 md:left-10 z-[100] flex items-center gap-3 px-5 py-3 rounded-full backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 ${buttonClasses}`}
+        aria-label="Go Back"
+      >
+        <div className={`flex items-center justify-center rounded-full h-8 w-8 ${buttonIconClasses}`}>
+          <ArrowLeft className="h-4 w-4" />
+        </div>
+        <span className="font-semibold text-sm tracking-wide">Back</span>
+      </button>
 
-          {/* Right Content: Image */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-6 xl:col-span-5 relative mt-16 lg:mt-0"
+      {/* Contact Button */}
+      <Link
+        to="/contact"
+        className={`absolute top-6 right-16 md:top-10 md:right-20 z-[100] flex items-center gap-2 px-5 py-3 rounded-full backdrop-blur-md border shadow-xl transition-all duration-300 hover:scale-105 ${buttonClasses}`}
+        aria-label="Contact Us"
+      >
+        <span className="font-semibold text-sm tracking-wide">Contact</span>
+      </Link>
+
+      {/* Logo */}
+      <Link to="/" className="absolute top-6 left-1/2 -translate-x-1/2 z-[100]">
+        <img
+          src="/images/logo/rlogo.png"
+          alt="Rashtrahit28Marketing"
+          className="h-10 md:h-12 w-auto object-contain"
+        />
+      </Link>
+
+      {/* Right Progress Indicators */}
+      <div className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
+        {Array.from({ length: TOTAL_SECTIONS }).map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => goToSection(idx)}
+            className="group relative flex items-center justify-center h-6 w-6"
+            aria-label={`Go to section ${idx + 1}`}
           >
-            <div className="relative group mx-4 sm:mx-0">
-              {/* Framing Elements */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-orange-200/40 to-blue-200/40 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative bg-white p-3 rounded-[2.5rem] shadow-2xl border border-gray-100 overflow-hidden">
-                <img 
-                  src="/images/services/print-media.png" 
-                  alt="Premium Printing Solutions" 
-                  className="w-full h-auto object-cover rounded-[2rem]"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            <span
+              className={`absolute h-1.5 w-1.5 rounded-full transition-all duration-500 ${activeSection === idx ? `${dotActive} scale-150` : `${dotInactive} group-hover:scale-125`}`}
+            />
+          </button>
+        ))}
+      </div>
 
-      {/* 2. Services Grid */}
-      <section className="relative bg-gray-50/50 py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {PRINT_SERVICES.map((service, idx) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative rounded-2xl bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-900/5 border border-gray-100"
-              >
-                <div className="mb-6 inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-[14px] bg-brand-50/50 border border-brand-100 text-brand-700 transition-all duration-500 group-hover:scale-105 group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:text-white group-hover:rotate-3">
-                  {service.icon}
-                </div>
-                
-                <h3 className="mb-4 text-xl font-bold text-gray-900 font-heading">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  {service.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.div
+          key={activeSection}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={transition}
+          className="absolute inset-0 w-full h-full"
+        >
+          {activeSection === 0 && <PrintHeroSection />}
+          {activeSection === 1 && <PrintServicesSection />}
+          {activeSection === 2 && <PrintWhyUsSection />}
+          {activeSection === 3 && <PrintCTASection />}
+        </motion.div>
+      </AnimatePresence>
 
-      {/* 3. Why Choose Us */}
-      <section className="relative overflow-hidden bg-brand-900 py-24 md:py-32 text-white">
-        <div className="absolute inset-0 z-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
-        
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">
-              Why Choose Our Print Media Services
-            </h2>
-            <div className="mx-auto h-1 w-20 bg-brand-500 rounded-full" />
-          </div>
-          
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {FEATURES.map((feature, idx) => (
-              <motion.div
-                key={feature}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="flex items-center gap-4 rounded-xl bg-white/5 p-4 border border-white/10 backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20"
-              >
-                <CheckCircle2 className="h-6 w-6 text-brand-500 shrink-0" />
-                <span className="font-medium tracking-wide">{feature}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <style dangerouslySetInnerHTML={{__html: `
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}} />
+    </div>
+  );
+}
 
-      {/* 4. CTA Section */}
-      <section className="relative bg-white py-24 md:py-32">
-        <div className="mx-auto max-w-4xl px-6 lg:px-12 text-center">
+function PrintHeroSection() {
+  return (
+    <div className="w-full h-full bg-white flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[60px] overflow-y-auto hide-scrollbar">
+      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[500px] h-[500px] bg-orange-100/50 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-7xl h-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+            className="text-3xl md:text-4xl lg:text-[3.2rem] font-bold tracking-tight text-gray-900 leading-[1.1] font-heading uppercase mb-4 lg:mb-6"
+          >
+            Print Media Solutions
+          </motion.h1>
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl bg-gray-50/50 border border-gray-100 p-12 md:p-16 shadow-lg shadow-gray-200/20"
+            initial={{ opacity: 0, scaleX: 0 }} animate={{ opacity: 1, scaleX: 1 }} transition={{ delay: 0.4 }}
+            className="h-1 w-20 bg-brand-500 rounded-full mb-6"
+            style={{ transformOrigin: 'left' }}
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
+            className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-heading mb-6">
-              Need Professional Print Media Solutions?
-            </h2>
-            <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-              Whether you need business cards, brochures, banners, promotional products, or complete branding materials, Rashtrahit28Marketing delivers premium printing solutions tailored to your business.
-            </p>
-            <Link to="/contact">
-              <Button variant="primary" size="lg" className="px-10 py-4 text-lg group">
-                Contact Us
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-            </Link>
-          </motion.div>
+            At Rashtrahit28Marketing, we provide high-quality print media solutions that help businesses strengthen their offline presence. From business essentials to large-format advertising, our print services are designed with premium quality, creative layouts, and professional finishing to leave a lasting impression.
+          </motion.p>
         </div>
-      </section>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6, duration: 1 }}
+          className="w-full lg:w-1/2 flex items-center justify-center h-[35%] md:h-[40%] lg:h-full shrink-0"
+        >
+          <motion.div
+            animate={{ y: [-10, 10, -10] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="relative w-full h-full max-h-[280px] lg:max-h-[580px] rounded-[1.5rem] lg:rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100"
+          >
+            <img
+              src="/images/services/print-media.png"
+              alt="Premium Printing Solutions"
+              className="w-full h-full object-cover rounded-[1.5rem] lg:rounded-[3rem]"
+            />
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+function PrintServicesSection() {
+  return (
+    <div className="w-full h-full bg-gray-50 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[60px] overflow-y-auto hide-scrollbar">
+      <div className="w-full max-w-7xl h-full flex flex-col justify-center gap-6 lg:gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+          className="text-center"
+        >
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-heading text-gray-900 mb-3">Our Print Services</h2>
+          <div className="mx-auto h-1 w-16 bg-brand-500 rounded-full" />
+        </motion.div>
+
+        <div className="grid gap-3 md:gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {PRINT_SERVICES.map((service, idx) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + idx * 0.06 }}
+              className="group relative rounded-2xl bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-900/5 border border-gray-100"
+            >
+              <div className="mb-4 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-brand-50/50 border border-brand-100 text-brand-700 transition-all duration-500 group-hover:scale-105 group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:text-white group-hover:rotate-3">
+                {service.icon}
+              </div>
+              <h3 className="mb-2 text-base font-bold text-gray-900 font-heading">{service.title}</h3>
+              <p className="text-gray-600 leading-relaxed text-xs md:text-sm">{service.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PrintWhyUsSection() {
+  return (
+    <div className="w-full h-full bg-gradient-to-br from-gray-950 to-brand-900 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[60px] overflow-y-auto hide-scrollbar">
+      <div className="absolute inset-0 z-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
+
+      <div className="relative z-10 w-full max-w-7xl h-full flex flex-col justify-center gap-8 lg:gap-12 text-white">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+          className="text-center"
+        >
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold font-heading mb-4">Why Choose Our Print Media Services</h2>
+          <div className="mx-auto h-1 w-20 bg-brand-400 rounded-full" />
+        </motion.div>
+
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {FEATURES.map((feature, idx) => (
+            <motion.div
+              key={feature}
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + idx * 0.08 }}
+              className="flex items-center gap-4 rounded-xl bg-white/5 p-4 border border-white/10 backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20"
+            >
+              <CheckCircle2 className="h-6 w-6 text-brand-400 shrink-0" />
+              <span className="font-medium tracking-wide text-sm md:text-base">{feature}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PrintCTASection() {
+  return (
+    <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 flex items-center justify-center px-6 md:px-[60px] lg:px-[80px] pt-[80px] md:pt-[100px] pb-6 lg:pb-[60px] overflow-y-auto hide-scrollbar">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-20 -right-20 md:-top-40 md:-right-40 w-64 h-64 md:w-96 md:h-96 bg-orange-500 rounded-full blur-[100px] md:blur-[150px] opacity-40" />
+        <div className="absolute -bottom-20 -left-20 md:-bottom-40 md:-left-40 w-64 h-64 md:w-96 md:h-96 bg-brand-500 rounded-full blur-[100px] md:blur-[150px] opacity-40" />
+      </div>
+
+      <div className="relative z-10 w-full max-w-4xl flex flex-col items-center text-center gap-6 lg:gap-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+          className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight"
+        >
+          Need Professional Print Media Solutions?
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+          className="text-base md:text-xl text-brand-100 max-w-[600px] leading-relaxed"
+        >
+          Whether you need business cards, brochures, banners, promotional products, or complete branding materials, Rashtrahit28Marketing delivers premium printing solutions tailored to your business.
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5 }}
+        >
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-500 text-white font-bold text-lg hover:bg-brand-600 transition-colors shadow-xl"
+          >
+            Contact Us
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+        </motion.div>
+      </div>
     </div>
   );
 }

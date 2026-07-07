@@ -80,10 +80,9 @@ export function ContactUs() {
                   <div className="flex flex-col pt-1">
                     <span className="text-sm font-semibold text-gray-900 mb-1 uppercase tracking-wider">Address</span>
                     <span className="text-gray-600 leading-relaxed">
-                      28, Urban Estate,<br />
-                      Sector-7,<br />
+                      592/D-14, Sec-5 Sheetla Colony,<br />
                       Gurugram,<br />
-                      Haryana - 122001
+                      Pincode-12201
                     </span>
                   </div>
                 </li>

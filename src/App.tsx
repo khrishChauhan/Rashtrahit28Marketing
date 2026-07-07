@@ -205,19 +205,20 @@ function AnimatedRoutes() {
 
 function AppContent() {
   const location = useLocation();
-  const isPoliticalPage = location.pathname === '/political';
-  const isPrintMediaPage = location.pathname === '/services/print-media';
+  const isFullscreenPage = 
+    location.pathname === '/political' || 
+    location.pathname.startsWith('/services/');
 
   return (
     <div className="min-h-screen bg-bg-base font-sans selection:bg-brand-500 selection:text-white">
       <ScrollToTop />
       <SEOUpdater />
-      {!isPoliticalPage && <Header />}
+      {!isFullscreenPage && <Header />}
       <main>
         <AnimatedRoutes />
       </main>
-      {!isPoliticalPage && !isPrintMediaPage && <Footer />}
-      <WhatsAppButton />
+      {!isFullscreenPage && <Footer />}
+      {!isFullscreenPage && <WhatsAppButton />}
     </div>
   );
 }

@@ -112,7 +112,7 @@ export function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Address</span>
-                  <span className="font-medium leading-relaxed">28, Urban Estate, Sector-7,<br />India, Haryana - 122001</span>
+                  <span className="font-medium leading-relaxed">592/D-14, Sec-5 Sheetla Colony,<br />Gurugram, Pincode-12201</span>
                 </div>
               </li>
               <li>
