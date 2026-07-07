@@ -78,6 +78,91 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
+
+const SEO_CONFIG: Record<string, { title: string, description: string, canonical: string }> = {
+  "/": {
+    title: "Home | Rashtrahit28Marketing - Digital Marketing Agency",
+    description: "Rashtrahit28Marketing is a leading digital marketing and political campaign agency offering SEO, SMM, and web design in Gurgaon.",
+    canonical: "https://rashtrahit28marketing.com/"
+  },
+  "/about": {
+    title: "About Us | Rashtrahit28Marketing",
+    description: "Learn about Rashtrahit28Marketing's expertise in digital marketing, web design, and political campaign management.",
+    canonical: "https://rashtrahit28marketing.com/about"
+  },
+  "/contact": {
+    title: "Contact Us | Rashtrahit28Marketing",
+    description: "Get in touch with Rashtrahit28Marketing for your digital marketing and political campaign needs in Gurgaon.",
+    canonical: "https://rashtrahit28marketing.com/contact"
+  },
+  "/political": {
+    title: "Political Campaign Management | Rashtrahit28Marketing",
+    description: "Expert political campaign management services designed to drive voter engagement and election success.",
+    canonical: "https://rashtrahit28marketing.com/political"
+  },
+  "/team": {
+    title: "Our Team | Rashtrahit28Marketing",
+    description: "Meet the experts behind Rashtrahit28Marketing, dedicated to delivering top-tier digital marketing results.",
+    canonical: "https://rashtrahit28marketing.com/team"
+  },
+  "/services/social-media-management": {
+    title: "Social Media Management | Rashtrahit28Marketing",
+    description: "Enhance your brand's online presence with our professional social media management and marketing strategies.",
+    canonical: "https://rashtrahit28marketing.com/services/social-media-management"
+  },
+  "/services/search-engine-optimization": {
+    title: "SEO Services | Rashtrahit28Marketing",
+    description: "Top SEO services in Gurgaon to help your company achieve increased organic traffic and optimal visibility.",
+    canonical: "https://rashtrahit28marketing.com/services/search-engine-optimization"
+  },
+  "/services/video-editing": {
+    title: "Video Editing | Rashtrahit28Marketing",
+    description: "Professional video editing services to produce captivating content and increase brand awareness.",
+    canonical: "https://rashtrahit28marketing.com/services/video-editing"
+  },
+  "/services/graphic-designing": {
+    title: "Graphic Designing | Rashtrahit28Marketing",
+    description: "Creative graphic design and social media post services that attract attention and build a strong brand presence.",
+    canonical: "https://rashtrahit28marketing.com/services/graphic-designing"
+  },
+  "/services/web-designing": {
+    title: "Web Designing | Rashtrahit28Marketing",
+    description: "High-impact web design services to help brands build a strong, credible, and conversion-focused online presence.",
+    canonical: "https://rashtrahit28marketing.com/services/web-designing"
+  },
+  "default": {
+    title: "Rashtrahit28Marketing | Digital Marketing & Political Campaign Agency",
+    description: "Rashtrahit28Marketing is a digital marketing and political campaign agency offering social media management, SEO, web design, graphic design, video editing, and campaign strategy.",
+    canonical: "https://rashtrahit28marketing.com/"
+  }
+};
+
+function SEOUpdater() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const seo = SEO_CONFIG[location.pathname] || SEO_CONFIG["default"];
+    document.title = seo.title;
+    
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', seo.description);
+    }
+    
+    let metaTitle = document.querySelector('meta[name="title"]');
+    if (metaTitle) {
+      metaTitle.setAttribute('content', seo.title);
+    }
+
+    let linkCanonical = document.querySelector('link[rel="canonical"]');
+    if (linkCanonical) {
+      linkCanonical.setAttribute('href', seo.canonical);
+    }
+  }, [location.pathname]);
+
+  return null;
+}
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -91,7 +176,7 @@ function AnimatedRoutes() {
   
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+      <Routes location={location} >
         <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
@@ -115,6 +200,7 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-bg-base font-sans selection:bg-brand-500 selection:text-white">
       <ScrollToTop />
+      <SEOUpdater />
       {!isPoliticalPage && <Header />}
       <main>
         <AnimatedRoutes />

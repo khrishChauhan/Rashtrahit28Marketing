@@ -389,7 +389,7 @@ function Section3() {
   );
 }
 
-function AccordionItem({ title, isOpen, onToggle }: { title: string, isOpen: boolean, onToggle: () => void }) {
+function AccordionItem({ title, isOpen, onToggle }: { title: string, isOpen: boolean, onToggle: () => void, key?: any }) {
   return (
     <div className="border-b border-gray-200/60 last:border-0 shrink-0">
       <button 

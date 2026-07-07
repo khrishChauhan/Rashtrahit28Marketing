@@ -138,7 +138,6 @@ export function AboutIntro() {
         </div>
       </section>
 
-      {/* Managing Director Modal Placeholder */}
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">

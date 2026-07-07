@@ -1,6 +1,8 @@
 {
-  "name": "",
-  "description": "",
+  "name": "Rashtrahit28Marketing",
+  "description": "Digital marketing and political campaign agency offering social media management, SEO, web design, graphic design, video editing, and campaign strategy.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

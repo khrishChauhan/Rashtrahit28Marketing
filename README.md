@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Rashtrahit28Marketing
 
-# Run and deploy your AI Studio app
+Rashtrahit28Marketing is a premier digital marketing and political campaign agency offering comprehensive solutions including social media management, SEO, web design, graphic design, video editing, and campaign strategy.
 
-This contains everything you need to run your app locally.
+## Services
+- Branding
+- Political Campaign Management
+- Social Media Management (SMM)
+- Search Engine Optimization (SEO)
+- Video Editing
+- Web Designing
+- Graphic Designing
 
-View your app in AI Studio: https://ai.studio/apps/43f03462-7da0-4791-83a5-02eb55c44985
+## Development
+This project is built with React, TypeScript, and Vite.
 
-## Run Locally
+### Setup
+```bash
+npm install
+```
 
-**Prerequisites:**  Node.js
+### Run Locally
+```bash
+npm run dev
+```
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Build for Production
+```bash
+npm run build
+```
