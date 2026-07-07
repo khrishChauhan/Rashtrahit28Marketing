@@ -1,0 +1,149 @@
+import React from 'react';
+import { motion } from 'motion/react';
+import { Star, Quote, Send } from 'lucide-react';
+import { Button } from '../ui/Button';
+import { Input, Textarea, Label } from '../ui/Form';
+import { Badge } from '../ui/Badge';
+
+const TESTIMONIALS = [
+  {
+    quote: "Rashtrahit28 entirely transformed our digital presence. Their attention to detail and strategic foresight resulted in a 300% increase in qualified leads.",
+    author: "Elena Rostova",
+    role: "CMO, TechGlobal",
+    rating: 5,
+    image: "https://i.pravatar.cc/150?img=44"
+  },
+  {
+    quote: "The most professional agency we have ever partnered with. The design system they established is timeless and fundamentally improved our brand trust.",
+    author: "Marcus Vance",
+    role: "CEO, Vance & Co",
+    rating: 5,
+    image: "https://i.pravatar.cc/150?img=11"
+  }
+];
+
+export function TrustAndContact() {
+  return (
+    <section className="relative overflow-hidden bg-gray-50/50 py-24 md:py-32">
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute -left-[20%] top-[10%] h-[600px] w-[600px] rounded-full bg-brand-100/30 blur-[120px]" />
+        <div className="absolute -right-[10%] bottom-[10%] h-[500px] w-[500px] rounded-full bg-accent-50/40 blur-[100px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-12">
+          
+          {/* Left Column: Testimonials (45%) */}
+          <div className="lg:w-[45%] flex flex-col">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-12"
+            >
+              <Badge variant="subtle" className="mb-6">Testimonials</Badge>
+              <h2 className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl font-heading mb-6">
+                Client Success <br /> Stories
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed max-w-md">
+                Don't just take our word for it. Hear from the visionary leaders who have partnered with us.
+              </p>
+            </motion.div>
+
+            <div className="flex flex-col gap-6">
+              {TESTIMONIALS.map((testimonial, idx) => (
+                <motion.div
+                  key={testimonial.author}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 + idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="group relative rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-brand-300 hover:shadow-xl hover:shadow-brand-900/5"
+                >
+                  <Quote className="absolute right-8 top-8 h-10 w-10 text-brand-50 transition-colors duration-500 group-hover:text-brand-100" />
+                  
+                  <div className="mb-6 flex gap-1 relative z-10">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-accent-500 text-accent-500" />
+                    ))}
+                  </div>
+                  
+                  <p className="mb-8 text-lg leading-relaxed text-gray-700 relative z-10">
+                    "{testimonial.quote}"
+                  </p>
+                  
+                  <div className="flex items-center gap-4 mt-auto relative z-10">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.author} 
+                      className="h-12 w-12 rounded-full object-cover ring-2 ring-gray-50"
+                    />
+                    <div>
+                      <h4 className="font-bold text-gray-900 font-heading">{testimonial.author}</h4>
+                      <p className="text-sm font-medium text-gray-500">{testimonial.role}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column: Contact Form (55%) */}
+          <div className="lg:w-[55%] lg:pl-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-[2.5rem] border border-gray-100 bg-white p-8 shadow-xl shadow-gray-200/40 sm:p-12 lg:p-14 relative"
+            >
+              <div className="mb-10">
+                <h3 className="text-3xl font-bold tracking-tight text-gray-900 font-heading mb-4">
+                  Let's Work Together
+                </h3>
+                <p className="text-gray-600">
+                  Ready to transform your brand? Fill out the form below and our team will get back to you within 24 hours.
+                </p>
+              </div>
+
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName" className="text-sm font-semibold text-gray-700">First Name</Label>
+                    <Input id="firstName" placeholder="Jane" className="h-14 rounded-xl bg-gray-50/50 focus:bg-white" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName" className="text-sm font-semibold text-gray-700">Last Name</Label>
+                    <Input id="lastName" placeholder="Doe" className="h-14 rounded-xl bg-gray-50/50 focus:bg-white" />
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm font-semibold text-gray-700">Work Email</Label>
+                  <Input id="email" type="email" placeholder="jane@company.com" className="h-14 rounded-xl bg-gray-50/50 focus:bg-white" />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-sm font-semibold text-gray-700">Project Details</Label>
+                  <Textarea id="message" placeholder="Tell us about your goals..." className="min-h-[160px] rounded-xl bg-gray-50/50 resize-none py-4 focus:bg-white" />
+                </div>
+                
+                <Button variant="primary" size="lg" className="w-full h-14 rounded-xl text-base group mt-4">
+                  Send Message
+                  <Send className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </Button>
+                
+                <p className="text-center text-xs text-gray-500 mt-6">
+                  By submitting this form, you agree to our privacy policy and terms of service.
+                </p>
+              </form>
+            </motion.div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  );
+}
