@@ -17,6 +17,7 @@ import { Footer } from "./components/layout/Footer";
 import { PoliticalCampaignPage } from "./components/layout/PoliticalCampaignPage";
 import { PrintMediaPage } from "./components/layout/PrintMediaPage";
 import { Button } from "./components/ui/Button";
+import { WhatsAppButton } from "./components/ui/WhatsAppButton";
 
 function HomePage() {
   return (
@@ -216,6 +217,7 @@ function AppContent() {
         <AnimatedRoutes />
       </main>
       {!isPoliticalPage && !isPrintMediaPage && <Footer />}
+      <WhatsAppButton />
     </div>
   );
 }
