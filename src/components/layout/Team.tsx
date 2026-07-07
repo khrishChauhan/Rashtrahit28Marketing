@@ -4,26 +4,18 @@ import { Linkedin, Twitter } from 'lucide-react';
 import { Badge } from '../ui/Badge';
 
 const TEAM_MEMBERS = [
-  {
-    name: "Sarah Jenkins",
-    role: "Head of Strategy",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "David Chen",
-    role: "Creative Director",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "Maya Patel",
-    role: "Lead Designer",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    name: "James Wilson",
-    role: "Technical Lead",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
-  }
+  { name: "Manish Kumar",
+    role: "Manager",
+    image: "/images/team/manish-kumar.jpg", },
+  { name: "Chandeshwar",
+    role: "Video Editor",
+    image: "/images/team/chandeshwar.jpg", },
+  { name: "Nishant Mishra",
+    role: "Video Editor",
+    image: "/images/team/nishant-mishra.jpg", },
+  { name: "Tanya Pandey",
+    role: "Content Writer",
+    image: "/images/team/tanya-pandey.jpg", }
 ];
 
 export function Team() {

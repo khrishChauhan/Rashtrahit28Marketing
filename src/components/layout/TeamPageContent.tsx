@@ -3,19 +3,33 @@ import { motion } from 'motion/react';
 import { Badge } from '../ui/Badge';
 
 const SOCIAL_MEDIA_TEAM = [
-  { name: "Manish Kumar", role: "Manager", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=400" },
-  { name: "Chandeshwar", role: "Video Editor", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400" },
-  { name: "Nishant Mishra", role: "Video Editor", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400&h=400" },
-  { name: "Tanya Pandey", role: "Content Writer", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400" },
+  { name: "Manish Kumar",
+    role: "Manager",
+    image: "/images/team/manish-kumar.jpg" },
+  { name: "Chandeshwar",
+    role: "Video Editor",
+    image: "/images/team/chandeshwar.jpg" },
+  { name: "Nishant Mishra",
+    role: "Video Editor",
+    image: "/images/team/nishant-mishra.jpg" },
+  { name: "Tanya Pandey",
+    role: "Content Writer",
+    image: "/images/team/tanya-pandey.jpg" },
 ];
 
 const DEV_TEAM = [
-  { name: "Abhishek Jha", role: "Software Developer", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400&h=400" },
-  { name: "Mona Jha", role: "SEO Marketing", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400" },
+  { name: "Abhishek Jha",
+    role: "Software Developer",
+    image: "/images/team/abhishek-jha.jpg" },
+  { name: "Mona Jha",
+    role: "SEO Marketing",
+    image: "/images/team/mona-jha.jpg" },
 ];
 
 const PRINT_TEAM = [
-  { name: "Rahul Yadav", role: "Print Media Solutions", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&h=400" },
+  { name: "Rahul Yadav",
+    role: "Print Media Solutions",
+    image: "/images/team/rahul-yadav.jpg" },
 ];
 
 function TeamMemberCard({ member }: { member: any, key?: number | string }) {
@@ -84,11 +98,7 @@ export function TeamPageContent() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="group relative mx-auto flex max-w-2xl cursor-pointer flex-col items-center rounded-[20px] border border-gray-100 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-[6px] hover:border-brand-200 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
           >
-            <div className="relative mb-6 flex h-32 w-32 items-center justify-center rounded-full border border-brand-100 bg-brand-50/50 shadow-inner transition-transform duration-500 group-hover:scale-105 group-hover:bg-brand-50">
-              <span className="font-heading text-4xl font-bold tracking-wider text-brand-700">
-                AJ
-              </span>
-            </div>
+
             <h3 className="mb-[10px] font-heading text-2xl md:text-3xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-brand-700 text-center mt-0">
               Abhishek Jha
             </h3>

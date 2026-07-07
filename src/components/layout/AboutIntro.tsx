@@ -162,7 +162,8 @@ export function AboutIntro() {
               </button>
               
               <Badge variant="subtle" className="mb-6">Leadership</Badge>
-              <h3 className="text-3xl font-bold text-gray-900 font-heading mb-4">Managing Director</h3>
+              <img src="/images/team/director-placeholder.jpg" alt="Managing Director" className="w-32 h-32 rounded-full mb-6 object-cover border-4 border-gray-50 shadow-lg mx-auto" />
+              <h3 className="text-3xl font-bold text-gray-900 font-heading mb-4 text-center">Managing Director</h3>
               <div className="h-1 w-16 bg-brand-500 rounded-full mb-8" />
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
                 Detailed information about the Managing Director goes here.
