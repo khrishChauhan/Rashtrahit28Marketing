@@ -89,28 +89,6 @@ export function TeamPageContent() {
           </motion.div>
         </section>
 
-        {/* SECTION 2: DIRECTOR */}
-        <section className="mb-24 md:mb-32">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="group relative mx-auto flex max-w-2xl cursor-pointer flex-col items-center rounded-[20px] border border-gray-100 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-[6px] hover:border-brand-200 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
-          >
-
-            <h3 className="mb-[10px] font-heading text-2xl md:text-3xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-brand-700 text-center mt-0">
-              Abhishek Jha
-            </h3>
-            <p className="mb-4 text-lg md:text-xl font-semibold text-brand-600 text-center m-0">
-              Director
-            </p>
-            <p className="text-center text-sm md:text-[15px] lg:text-base leading-[1.6] text-gray-600 max-w-md m-0">
-              Leading the company's vision, innovation and strategic growth.
-            </p>
-          </motion.div>
-        </section>
-
         {/* SECTION 3: SOCIAL MEDIA MARKETING TEAM */}
         <section className="mb-16 sm:mb-20 md:mb-28">
           <div className="mb-10 sm:mb-14 flex flex-col items-center text-center">
