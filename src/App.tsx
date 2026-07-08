@@ -7,6 +7,7 @@ import { WhatWeDo } from "./components/layout/WhatWeDo";
 import { Services } from "./components/layout/Services";
 import { Team } from "./components/layout/Team";
 import { TeamPageContent } from "./components/layout/TeamPageContent";
+import { ClientAreas } from "./components/layout/ClientAreas";
 import { ConnectWithUs } from "./components/layout/ConnectWithUs";
 import { TrustAndContact } from "./components/layout/TrustAndContact";
 import { AboutIntro } from "./components/layout/AboutIntro";
@@ -27,6 +28,7 @@ function HomePage() {
       <Services />
       <ConnectWithUs />
       <TeamPageContent />
+      <ClientAreas />
       <TrustAndContact />
     </>
   );
