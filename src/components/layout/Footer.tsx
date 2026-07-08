@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin, ChevronRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, MessageCircle, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const FOOTER_LINKS = {
@@ -20,10 +20,9 @@ const FOOTER_LINKS = {
 };
 
 const SOCIAL_LINKS = [
-  { icon: <Facebook className="h-4 w-4" />, href: "#", label: "Facebook" },
-  { icon: <Instagram className="h-4 w-4" />, href: "#", label: "Instagram" },
-  { icon: <Twitter className="h-4 w-4" />, href: "#", label: "Twitter" },
-  { icon: <Linkedin className="h-4 w-4" />, href: "#", label: "LinkedIn" },
+  { icon: <Facebook className="h-4 w-4" />, href: "https://www.facebook.com/Aj2805", label: "Facebook" },
+  { icon: <Instagram className="h-4 w-4" />, href: "https://www.instagram.com/_abhishek_2805/", label: "Instagram" },
+  { icon: <MessageCircle className="h-4 w-4" />, href: "https://wa.me/917290873707", label: "WhatsApp" },
 ];
 
 export function Footer() {
