@@ -286,7 +286,7 @@ export function Header() {
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
             {/* Logo */}
             <Link to="/" className="flex items-center group">
-              <img src="/images/logo/rlogo.png" alt="Rashtrahit28Marketing" className="h-[36px] sm:h-[48px] lg:h-[56px] w-auto object-contain" loading="lazy" />
+              <img src="/images/logo/rlogo.png" alt="Rashtrahit28Marketing" className="h-8 sm:h-10 lg:h-12 w-auto object-contain" loading="lazy" />
             </Link>
 
             {/* Desktop Nav */}

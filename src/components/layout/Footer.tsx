@@ -40,7 +40,7 @@ export function Footer() {
           {/* Column 1: Logo & Description (4 columns wide on lg) */}
           <div className="sm:col-span-2 lg:col-span-4 flex flex-col items-start">
             <Link to="/" className="flex items-center group mb-6">
-              <img src="/images/logo/rlogo.png" alt="Rashtrahit28Marketing" className="h-20 sm:h-24 w-auto object-contain" loading="lazy" />
+              <img src="/images/logo/rlogo.png" alt="Rashtrahit28Marketing" className="h-12 sm:h-16 w-auto object-contain" loading="lazy" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">
               Rashtrahit28Marketing offers the best digital marketing services in India, specializing in result-driven ad campaigns and strategic social media solutions.
