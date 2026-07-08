@@ -297,7 +297,28 @@ export function Header() {
             </nav>
 
             {/* CTA & Mobile Toggle */}
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-3 sm:gap-5">
+              <div className="flex items-center gap-2 sm:gap-3 xl:border-r border-gray-200 xl:pr-5 xl:mr-1">
+                <a 
+                  href="https://www.facebook.com/Aj2805" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="h-4 w-4" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/_abhishek_2805/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-pink-50 text-pink-600 hover:bg-pink-100 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="h-4 w-4" />
+                </a>
+              </div>
+              
               <div className="hidden xl:block">
                 <Button 
                   variant="primary" 
